@@ -1,97 +1,171 @@
 const research = [
-  { number: "01", title: "Spatial Perception", description: "Learning representations that connect geometry, semantics, and motion across the physical world.", tags: ["3D Vision", "Scene Understanding"], visual: "perception" },
-  { number: "02", title: "Embodied Reasoning", description: "Building agents that reason about space, uncertainty, and action before they move.", tags: ["Robot Learning", "World Models"], visual: "reasoning" },
-  { number: "03", title: "Human × Machine", description: "Creating intelligent spatial interfaces that help people explore, design, and collaborate.", tags: ["Mixed Reality", "Human–AI"], visual: "interaction" },
+  {
+    icon: "⌖",
+    title: "Spatial Perception",
+    description:
+      "We study how machines can understand objects, places, geometry, and motion from visual observations.",
+    topics: ["3D vision", "Scene understanding"],
+  },
+  {
+    icon: "◎",
+    title: "Embodied Reasoning",
+    description:
+      "We build agents that reason about space and action so they can operate reliably in the physical world.",
+    topics: ["Robot learning", "World models"],
+  },
+  {
+    icon: "◇",
+    title: "Human–AI Interaction",
+    description:
+      "We design spatial tools that help people explore information, create environments, and collaborate.",
+    topics: ["Mixed reality", "Interactive systems"],
+  },
 ];
 
 const people = [
-  { name: "Alex Chen", role: "Principal Investigator", initials: "AC", color: "blue" },
-  { name: "Maya Singh", role: "PhD Researcher · Spatial AI", initials: "MS", color: "coral" },
-  { name: "Noah Williams", role: "PhD Researcher · Robotics", initials: "NW", color: "lime" },
-  { name: "Iris Park", role: "Research Engineer · 3D Vision", initials: "IP", color: "violet" },
+  { name: "Alex Chen", role: "Principal Investigator", initials: "AC" },
+  { name: "Maya Singh", role: "PhD Student · Spatial AI", initials: "MS" },
+  { name: "Noah Williams", role: "PhD Student · Robotics", initials: "NW" },
+  { name: "Iris Park", role: "Research Engineer · 3D Vision", initials: "IP" },
+  { name: "Leo Martin", role: "MS Student · Interactive Systems", initials: "LM" },
+  { name: "Open Position", role: "We are looking for curious researchers", initials: "+" },
+];
+
+const updates = [
+  { date: "Jun 12, 2026", text: "Our work on spatial world models was accepted to SpatialAI 2026." },
+  { date: "Apr 03, 2026", text: "TWINS Lab is officially launched. Welcome to our new research home." },
+  { date: "Jan 18, 2026", text: "We are recruiting PhD students and research interns for Fall 2026." },
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Twins lab home">
-          <span className="brand-mark" aria-hidden="true"><i /><i /></span>
-          <span>TWINS</span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#research">Research</a><a href="#people">People</a><a href="#contact">Contact</a>
-        </nav>
-        <span className="header-index">34.0224° N<br />118.2851° W</span>
+        <div className="nav-wrap">
+          <a className="brand" href="#top" aria-label="TWINS Lab home">
+            <span className="brand-symbol" aria-hidden="true">T</span>
+            <span>TWINS Lab</span>
+          </a>
+          <nav aria-label="Primary navigation">
+            <a href="#research">Research</a>
+            <a href="#people">People</a>
+            <a href="#updates">Updates</a>
+            <a href="#contact">Join us</a>
+          </nav>
+        </div>
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow"><span>01</span> Intelligence has a shape</p>
-          <h1>Towards<br /><em>Spatial</em><br />Intelligence</h1>
-          <p className="hero-intro">We build intelligent systems that perceive, reason about, and interact with the spatial world.</p>
+        <div className="hero-mark" aria-hidden="true">
+          <span className="plane plane-back">T</span>
+          <span className="plane plane-front">T</span>
         </div>
-        <div className="hero-study" aria-label="Abstract spatial coordinate study">
-          <div className="axis axis-x" /><div className="axis axis-y" />
-          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="twin twin-a"><span>A</span></div><div className="twin twin-b"><span>B</span></div>
-          <div className="coordinate coordinate-a">x 24.7<br />y 18.3</div>
-          <div className="coordinate coordinate-b">Δ 06.4</div>
-          <p className="study-label">A study in relation<br />and relative position</p>
+        <p className="overline">Towards Spatial Intelligence</p>
+        <h1>We help machines understand the spatial world.</h1>
+        <p className="hero-copy">
+          TWINS is a research lab working at the intersection of computer
+          vision, robotics, machine learning, and human–computer interaction.
+        </p>
+        <div className="hero-actions">
+          <a className="button button-primary" href="#research">Explore our research</a>
+          <a className="button button-secondary" href="#contact">Join the lab</a>
         </div>
-        <a className="scroll-cue" href="#research">Explore our work <span aria-hidden="true">↓</span></a>
       </section>
 
-      <section className="manifesto">
-        <p className="section-kicker">Our premise</p>
-        <p className="manifesto-statement">Intelligence is not only about <em>what</em> things are. It is about understanding <em>where</em> they are, how they relate, and what could happen next.</p>
-        <div className="manifesto-note"><span>TWINS / 2026</span><p>We work across computer vision, robotics, machine learning, and human–computer interaction.</p></div>
-      </section>
-
-      <section className="research section-shell" id="research">
+      <section className="section" id="research">
         <div className="section-heading">
-          <p className="section-kicker">Selected directions</p><h2>Research</h2>
-          <p>Three connected ways of teaching machines to understand space.</p>
+          <div>
+            <p className="overline">What we work on</p>
+            <h2>Research</h2>
+          </div>
+          <p>
+            Our work is organized around a simple question: how can intelligent
+            systems perceive, reason about, and act within space?
+          </p>
         </div>
         <div className="research-grid">
           {research.map((item) => (
             <article className="research-card" key={item.title}>
-              <div className={`research-visual ${item.visual}`} aria-hidden="true">
-                <span className="visual-number">{item.number}</span><i className="shape shape-one" /><i className="shape shape-two" /><i className="shape shape-three" />
-              </div>
-              <div className="research-copy">
-                <p className="card-number">R / {item.number}</p><h3>{item.title}</h3><p>{item.description}</p>
-                <ul aria-label={`${item.title} topics`}>{item.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-              </div>
+              <span className="research-icon" aria-hidden="true">{item.icon}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <ul aria-label={`${item.title} topics`}>
+                {item.topics.map((topic) => <li key={topic}>{topic}</li>)}
+              </ul>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="people section-shell" id="people">
-        <div className="section-heading people-heading">
-          <p className="section-kicker">The lab</p><h2>People</h2>
-          <p>We are researchers, builders, and designers working toward machines that understand the world we share.</p>
+      <section className="section section-tinted" id="people">
+        <div className="section-heading">
+          <div>
+            <p className="overline">Who we are</p>
+            <h2>People</h2>
+          </div>
+          <p>
+            A small interdisciplinary group of researchers and builders
+            interested in intelligence, space, and interaction.
+          </p>
         </div>
         <div className="people-grid">
-          {people.map((person, index) => (
-            <article className="person" key={person.name}>
-              <div className={`portrait portrait-${person.color}`}><span aria-hidden="true">{person.initials}</span><i className="portrait-orbit" aria-hidden="true" /></div>
-              <div className="person-meta"><span>0{index + 1}</span><div><h3>{person.name}</h3><p>{person.role}</p></div></div>
+          {people.map((person) => (
+            <article className="person-card" key={person.name}>
+              <div className="avatar" aria-hidden="true">{person.initials}</div>
+              <div>
+                <h3>{person.name}</h3>
+                <p>{person.role}</p>
+              </div>
             </article>
           ))}
         </div>
-        <p className="dummy-note">Names and roles shown here are placeholder content.</p>
+        <p className="placeholder-note">Sample names and roles for layout preview.</p>
+      </section>
+
+      <section className="section" id="updates">
+        <div className="section-heading compact-heading">
+          <div>
+            <p className="overline">From the lab</p>
+            <h2>Latest updates</h2>
+          </div>
+        </div>
+        <div className="updates-list">
+          {updates.map((update) => (
+            <article className="update-row" key={update.date}>
+              <time>{update.date}</time>
+              <p>{update.text}</p>
+              <span aria-hidden="true">→</span>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="contact" id="contact">
-        <p className="section-kicker">Open positions</p><h2>Come think<br />in space with us.</h2>
-        <a href="mailto:hello@twins-lab.example">hello@twins-lab.example <span aria-hidden="true">↗</span></a>
+        <div>
+          <p className="overline">Work with us</p>
+          <h2>Interested in spatial intelligence?</h2>
+          <p>
+            We welcome students and collaborators from different disciplines.
+            Tell us what you are curious about.
+          </p>
+        </div>
+        <a className="button button-primary" href="mailto:hello@twins-lab.example">
+          Get in touch
+        </a>
       </section>
 
       <footer>
-        <a className="brand footer-brand" href="#top"><span className="brand-mark" aria-hidden="true"><i /><i /></span><span>TWINS</span></a>
-        <p>Towards Spatial Intelligence</p><p>Prototype site · 2026</p>
+        <div className="footer-main">
+          <a className="brand" href="#top">
+            <span className="brand-symbol" aria-hidden="true">T</span>
+            <span>TWINS Lab</span>
+          </a>
+          <p>Towards Spatial Intelligence</p>
+        </div>
+        <div className="footer-meta">
+          <p>Sample website · 2026</p>
+          <p>hello@twins-lab.example</p>
+        </div>
       </footer>
     </main>
   );
