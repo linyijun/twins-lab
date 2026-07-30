@@ -22,15 +22,6 @@ const research = [
   },
 ];
 
-const people = [
-  { name: "Alex Chen", role: "Principal Investigator", initials: "AC" },
-  { name: "Maya Singh", role: "PhD Student · Spatial AI", initials: "MS" },
-  { name: "Noah Williams", role: "PhD Student · Robotics", initials: "NW" },
-  { name: "Iris Park", role: "Research Engineer · 3D Vision", initials: "IP" },
-  { name: "Leo Martin", role: "MS Student · Interactive Systems", initials: "LM" },
-  { name: "Open Position", role: "We are looking for curious researchers", initials: "+" },
-];
-
 const updates = [
   { date: "Jun 12, 2026", text: "Our work on spatial world models was accepted to SpatialAI 2026." },
   { date: "Apr 03, 2026", text: "TWINS Lab is officially launched. Welcome to our new research home." },
@@ -60,8 +51,7 @@ export default function Home() {
           <span className="plane plane-back">T</span>
           <span className="plane plane-front">T</span>
         </div>
-        <p className="overline">Towards Spatial Intelligence</p>
-        <h1>We help machines understand the spatial world.</h1>
+        <h1>Towards Spatial Intelligence</h1>
         <p className="hero-copy">
           TWINS is a research lab working at the intersection of computer
           vision, robotics, machine learning, and human–computer interaction.
@@ -78,10 +68,6 @@ export default function Home() {
             <p className="overline">What we work on</p>
             <h2>Research</h2>
           </div>
-          <p>
-            Our work is organized around a simple question: how can intelligent
-            systems perceive, reason about, and act within space?
-          </p>
         </div>
         <div className="research-grid">
           {research.map((item) => (
@@ -103,23 +89,27 @@ export default function Home() {
             <p className="overline">Who we are</p>
             <h2>People</h2>
           </div>
-          <p>
-            A small interdisciplinary group of researchers and builders
-            interested in intelligence, space, and interaction.
-          </p>
         </div>
-        <div className="people-grid">
-          {people.map((person) => (
-            <article className="person-card" key={person.name}>
-              <div className="avatar" aria-hidden="true">{person.initials}</div>
+        <div className="people-group">
+          <h3>Lab Director</h3>
+          <div className="people-grid">
+            <article className="person-card">
+              <div className="avatar" aria-hidden="true">AC</div>
               <div>
-                <h3>{person.name}</h3>
-                <p>{person.role}</p>
+                <h4>Alex Chen</h4>
+                <p>Lab Director</p>
               </div>
             </article>
-          ))}
+          </div>
         </div>
-        <p className="placeholder-note">Sample names and roles for layout preview.</p>
+        <div className="people-group">
+          <h3>PhD Students</h3>
+          <div className="empty-people">
+            <p>No PhD students yet.</p>
+            <a href="#contact">We are recruiting →</a>
+          </div>
+        </div>
+        <p className="placeholder-note">Director name is sample content for layout preview.</p>
       </section>
 
       <section className="section" id="updates">

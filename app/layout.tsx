@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TWINS Lab",
     description: "Towards Spatial Intelligence",
-    images: [{ url: "/og.png", width: 1730, height: 909, alt: "TWINS Lab — Towards Spatial Intelligence" }],
+    images: [{ url: "/og-pink.png", width: 1730, height: 909, alt: "TWINS Lab — Towards Spatial Intelligence" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TWINS Lab",
     description: "Towards Spatial Intelligence",
-    images: ["/og.png"],
+    images: ["/og-pink.png"],
   },
   icons: {
     icon: "/favicon.svg",
