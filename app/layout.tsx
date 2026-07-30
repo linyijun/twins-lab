@@ -14,19 +14,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://twins-spatial-intelligence.lin00786.chatgpt.site"),
-  title: "TWINS — Towards Spatial Intelligence",
+  title: "TWINS LAB — Towards Intelligent Spatial Computing",
   description:
     "A research lab building intelligent systems that perceive, reason about, and interact with the spatial world.",
   openGraph: {
     title: "TWINS Lab",
-    description: "Towards Spatial Intelligence",
-    images: [{ url: "/og-pink.png", width: 1730, height: 909, alt: "TWINS Lab — Towards Spatial Intelligence" }],
+    description: "Towards Intelligent Spatial Computing",
+    images: [{ url: "/og-dark.png", width: 1731, height: 909, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TWINS Lab",
-    description: "Towards Spatial Intelligence",
-    images: ["/og-pink.png"],
+    description: "Towards Intelligent Spatial Computing",
+    images: ["/og-dark.png"],
   },
   icons: {
     icon: "/favicon.svg",
