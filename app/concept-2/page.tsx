@@ -43,7 +43,13 @@ export default function ConceptTwo() {
 
       <header className={styles.utility}>
         <p>Spatial intelligence · SIU Carbondale</p>
-        <a href="/">View previous concept ↗</a>
+        <nav className={styles.navigation} aria-label="Primary navigation">
+          {navigation.map((item) => (
+            <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
+              {item}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <section className={styles.hero}>
@@ -64,19 +70,10 @@ export default function ConceptTwo() {
         </div>
       </section>
 
-      <nav className={styles.navigation} aria-label="Primary navigation">
-        {navigation.map((item, index) => (
-          <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
-            <span>0{index + 1}</span>
-            {item}
-          </a>
-        ))}
-      </nav>
-
       <footer className={styles.footer}>
         <p>Southern Illinois University Carbondale</p>
         <p>School of Computing</p>
-        <p>Carbondale, Illinois</p>
+        <a href="/">Previous concept ↗</a>
       </footer>
     </main>
   );

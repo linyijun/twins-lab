@@ -39,9 +39,9 @@
 
 .road {
   width: 145vw;
-  height: 56px;
+  height: 22px;
   border-top: 1px solid rgba(23, 23, 23, 0.19);
-  border-bottom: 1px solid rgba(23, 23, 23, 0.1);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.13);
 }
 
 .road::after {
@@ -151,7 +151,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px clamp(24px, 4vw, 64px);
+  padding: 0 clamp(24px, 4vw, 64px);
   border-bottom: 1px solid var(--line);
   font-family: var(--font-mono), monospace;
   font-size: 0.69rem;
@@ -163,25 +163,24 @@
   margin: 0;
 }
 
-.utility a {
-  color: var(--ink);
-  text-underline-offset: 4px;
-}
-
 .hero {
   position: relative;
   display: grid;
-  min-height: 66vh;
+  min-height: calc(100vh - 142px);
   place-items: center;
-  padding: 80px 24px;
+  padding: 68px 24px;
 }
 
 .titlePlate {
-  width: min(940px, 90vw);
-  padding: clamp(28px, 5vw, 70px);
+  width: min(1160px, 94vw);
+  padding: clamp(28px, 4vw, 58px);
   text-align: center;
-  background: rgba(243, 241, 235, 0.88);
-  box-shadow: 0 0 65px 45px rgba(243, 241, 235, 0.75);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(243, 241, 235, 0.98) 0%,
+    rgba(243, 241, 235, 0.92) 52%,
+    rgba(243, 241, 235, 0) 78%
+  );
 }
 
 .eyebrow {
@@ -194,15 +193,15 @@
 
 .titlePlate h1 {
   margin: 0;
-  font-size: clamp(4rem, 12vw, 10.5rem);
+  font-size: clamp(4.5rem, 13.5vw, 12.5rem);
   font-weight: 750;
-  letter-spacing: -0.075em;
-  line-height: 0.82;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
 }
 
 .intro {
   width: min(620px, 100%);
-  margin: 38px auto 0;
+  margin: 34px auto 0;
   color: var(--muted);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.55;
@@ -237,23 +236,19 @@
 }
 
 .navigation {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 0 clamp(24px, 4vw, 64px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-self: stretch;
 }
 
 .navigation a {
   display: flex;
-  gap: 15px;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  padding: 24px 15px;
+  padding: 0 clamp(13px, 1.8vw, 28px);
   color: var(--ink);
-  font-size: 0.82rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 160ms ease, background 160ms ease;
@@ -266,12 +261,6 @@
 .navigation a:hover {
   color: var(--pink);
   background: rgba(255, 255, 255, 0.24);
-}
-
-.navigation span {
-  color: var(--pink);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6rem;
 }
 
 .footer {
@@ -290,6 +279,11 @@
   margin: 0;
 }
 
+.footer a {
+  color: var(--muted);
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 720px) {
   .utility p {
     display: none;
@@ -297,10 +291,11 @@
 
   .utility {
     justify-content: flex-end;
+    padding-inline: 12px;
   }
 
   .hero {
-    min-height: 65vh;
+    min-height: calc(100vh - 185px);
   }
 
   .titlePlate {
@@ -312,16 +307,13 @@
   }
 
   .navigation {
-    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
 
-  .navigation a:nth-child(3),
-  .navigation a:nth-child(4) {
-    border-top: 1px solid var(--line);
-  }
-
-  .navigation a:nth-child(3) {
-    border-left: 0;
+  .navigation a {
+    flex: 1;
+    padding: 18px 6px;
+    font-size: 0.58rem;
   }
 
   .footer {
