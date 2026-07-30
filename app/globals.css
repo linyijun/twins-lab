@@ -47,6 +47,57 @@ body {
   pointer-events: none;
 }
 
+.map-layer {
+  position: absolute;
+  inset: -12%;
+  opacity: .12;
+  transform: rotate(-4deg) scale(1.05);
+  pointer-events: none;
+}
+
+.map-road,
+.map-river,
+.map-curve {
+  position: absolute;
+  display: block;
+}
+
+.map-road {
+  height: 1px;
+  background: rgba(246,243,244,.8);
+  transform-origin: left center;
+}
+
+.road-one { width: 52%; left: -4%; top: 23%; transform: rotate(18deg); }
+.road-two { width: 63%; right: -12%; top: 21%; transform: rotate(-12deg); }
+.road-three { width: 48%; left: 7%; top: 47%; transform: rotate(-27deg); }
+.road-four { width: 58%; right: -5%; top: 51%; transform: rotate(21deg); }
+.road-five { width: 38%; left: 20%; bottom: 19%; transform: rotate(8deg); }
+.road-six { width: 42%; right: 8%; bottom: 16%; transform: rotate(-31deg); }
+.road-seven { width: 44%; left: 36%; top: 8%; transform: rotate(67deg); }
+.road-eight { width: 38%; left: 14%; bottom: 8%; transform: rotate(-71deg); }
+
+.map-curve {
+  width: 38%;
+  height: 29%;
+  border-top: 1px solid rgba(246,243,244,.8);
+  border-radius: 50%;
+}
+
+.curve-one { left: -3%; top: 31%; transform: rotate(19deg); }
+.curve-two { right: 2%; bottom: 23%; transform: rotate(-34deg); }
+
+.map-river {
+  width: 36%;
+  height: 20%;
+  border-top: 2px solid rgba(231,137,166,.8);
+  border-radius: 50%;
+}
+
+.river-one { width: 45%; left: -7%; top: 59%; transform: rotate(-19deg); }
+.river-two { width: 42%; left: 29%; top: 48%; transform: rotate(8deg); }
+.river-three { width: 46%; right: -8%; top: 37%; transform: rotate(-23deg); }
+
 .spatial-field {
   position: absolute;
   width: min(860px, 82vw);
@@ -123,16 +174,6 @@ body {
   z-index: 2;
   width: min(980px, 100%);
   text-align: center;
-}
-
-.lab-index {
-  margin: 0 0 26px;
-  color: var(--pink);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
-  font-weight: 650;
-  letter-spacing: .16em;
-  text-transform: uppercase;
 }
 
 h1 {
@@ -219,6 +260,7 @@ footer p:last-child { justify-self: end; color: var(--muted); }
   }
   .hero::before { inset: 12px; }
   .spatial-field { width: 120vw; aspect-ratio: 1 / 1; }
+  .map-layer { inset: -4% -55%; opacity: .1; transform: rotate(-8deg) scale(1.1); }
   h1 { font-size: clamp(64px, 22vw, 105px); line-height: .86; }
   .subtitle { max-width: 340px; margin-left: auto; margin-right: auto; line-height: 1.35; }
   .description { max-width: 430px; font-size: 14px; }

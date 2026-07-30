@@ -4,6 +4,21 @@ export default function Home() {
   return (
     <main className="landing">
       <section className="hero">
+        <div className="map-layer" aria-hidden="true">
+          <span className="map-road road-one" />
+          <span className="map-road road-two" />
+          <span className="map-road road-three" />
+          <span className="map-road road-four" />
+          <span className="map-road road-five" />
+          <span className="map-road road-six" />
+          <span className="map-road road-seven" />
+          <span className="map-road road-eight" />
+          <span className="map-curve curve-one" />
+          <span className="map-curve curve-two" />
+          <span className="map-river river-one" />
+          <span className="map-river river-two" />
+          <span className="map-river river-three" />
+        </div>
         <div className="spatial-field" aria-hidden="true">
           <span className="grid-line line-x-one" />
           <span className="grid-line line-x-two" />
@@ -20,12 +35,11 @@ export default function Home() {
         </div>
 
         <div className="hero-content">
-          <p className="lab-index">Research Lab · Est. 2026</p>
           <h1>TWINS LAB</h1>
           <p className="subtitle">Towards Intelligent Spatial Computing</p>
           <p className="description">
-            TWINS is a research lab working at the intersection of computer
-            vision, robotics, machine learning, and human–computer interaction.
+            TWINS is a research lab working at the intersection of AI, machine
+            learning, and spatial sciences.
           </p>
           <nav aria-label="Future website sections">
             {navigation.map((item, index) => (

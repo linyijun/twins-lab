@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://twins-spatial-intelligence.lin00786.chatgpt.site"),
   title: "TWINS LAB — Towards Intelligent Spatial Computing",
   description:
-    "A research lab building intelligent systems that perceive, reason about, and interact with the spatial world.",
+    "A research lab working at the intersection of AI, machine learning, and spatial sciences.",
   openGraph: {
     title: "TWINS Lab",
     description: "Towards Intelligent Spatial Computing",
