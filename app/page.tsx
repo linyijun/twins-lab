@@ -31,11 +31,12 @@ const updates = [
 export default function Home() {
   return (
     <main>
+      <div className="topline">TWINS · TOWARDS SPATIAL INTELLIGENCE</div>
       <header className="site-header">
         <div className="nav-wrap">
           <a className="brand" href="#top" aria-label="TWINS Lab home">
             <span className="brand-symbol" aria-hidden="true">T</span>
-            <span>TWINS Lab</span>
+            <span>TWINS <b>LAB</b></span>
           </a>
           <nav aria-label="Primary navigation">
             <a href="#research">Research</a>
@@ -148,7 +149,7 @@ export default function Home() {
         <div className="footer-main">
           <a className="brand" href="#top">
             <span className="brand-symbol" aria-hidden="true">T</span>
-            <span>TWINS Lab</span>
+            <span>TWINS <b>LAB</b></span>
           </a>
           <p>Towards Spatial Intelligence</p>
         </div>
