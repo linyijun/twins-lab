@@ -1,5 +1,3 @@
-const navigation = ["Research", "People", "Updates", "Join Us"];
-
 export default function Home() {
   return (
     <main className="landing">
@@ -15,9 +13,22 @@ export default function Home() {
           <span className="map-road road-eight" />
           <span className="map-curve curve-one" />
           <span className="map-curve curve-two" />
+          <span className="map-curve curve-three" />
+          <span className="map-curve curve-four" />
+          <span className="map-curve curve-five" />
+          <span className="map-curve curve-six" />
           <span className="map-river river-one" />
           <span className="map-river river-two" />
           <span className="map-river river-three" />
+          <span className="map-coordinate map-coordinate-one">
+            37.7749° N, 122.4194° W
+          </span>
+          <span className="map-coordinate map-coordinate-two">
+            40.7128° N, 74.0060° W
+          </span>
+          <span className="map-coordinate map-coordinate-three">
+            34.0522° N, 118.2437° W
+          </span>
         </div>
         <div className="spatial-field" aria-hidden="true">
           <span className="grid-line line-x-one" />
@@ -41,18 +52,14 @@ export default function Home() {
             TWINS is a research lab working at the intersection of AI, machine
             learning, and spatial sciences.
           </p>
-          <nav aria-label="Future website sections">
-            {navigation.map((item, index) => (
-              <span key={item}>
-                <small>0{index + 1}</small>
-                {item}
-              </span>
-            ))}
-          </nav>
+          <a className="explore-button" href="#university">
+            Explore More
+            <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </section>
 
-      <footer>
+      <footer id="university">
         <p>Southern Illinois University Carbondale</p>
         <p>School of Computing</p>
         <p>Carbondale, Illinois</p>
