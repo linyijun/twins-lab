@@ -20,14 +20,20 @@ export default function ConceptTwo() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <p>Spatial Intelligence · SIU Carbondale</p>
-        <nav className={styles.navigation} aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
-              {item}
-            </a>
-          ))}
-        </nav>
+        <div className={styles.primaryRow}>
+          <p className={styles.identity}>TWINS LAB · SIU CARBONDALE</p>
+          <nav className={styles.navigation} aria-label="Primary navigation">
+            {navigation.map((item) => (
+              <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
+                {item}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <p className={styles.statement}>
+          TWINS is a research lab working at the intersection of AI, machine
+          learning, and spatial sciences.
+        </p>
       </header>
 
       <section className={styles.hero} aria-labelledby="concept-title">
@@ -42,10 +48,7 @@ export default function ConceptTwo() {
       </section>
 
       <footer className={styles.footer}>
-        <p>
-          TWINS is a research lab working at the intersection of AI, machine
-          learning, and spatial sciences.
-        </p>
+        <p>Southern Illinois University Carbondale</p>
         <div>
           <span>School of Computing</span>
           <a href="/">Previous concept ↗</a>
