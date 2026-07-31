@@ -14,35 +14,13 @@ export const metadata: Metadata = {
   },
 };
 
-const navigation = ["Research", "People", "Updates", "Join Us"];
-
-const roads = [
-  { className: styles.roadOne },
-  { className: styles.roadTwo },
-  { className: styles.roadThree },
-  { className: styles.roadFour },
-  { className: styles.roadFive },
-];
+const navigation = ["Research", "Team", "Updates", "Join Us"];
 
 export default function ConceptTwo() {
   return (
     <main className={styles.page}>
-      <div className={styles.map} aria-hidden="true">
-        <div className={styles.grid} />
-        {roads.map((road, index) => (
-          <span className={`${styles.road} ${road.className}`} key={index} />
-        ))}
-        <span className={`${styles.river} ${styles.riverOne}`} />
-        <span className={`${styles.river} ${styles.riverTwo}`} />
-        <span className={`${styles.connector} ${styles.connectorOne}`} />
-        <span className={`${styles.connector} ${styles.connectorTwo}`} />
-        <span className={`${styles.node} ${styles.nodeOne}`} />
-        <span className={`${styles.node} ${styles.nodeTwo}`} />
-        <span className={`${styles.node} ${styles.nodeThree}`} />
-      </div>
-
-      <header className={styles.utility}>
-        <p>Spatial intelligence · SIU Carbondale</p>
+      <header className={styles.header}>
+        <p>Spatial Intelligence · SIU Carbondale</p>
         <nav className={styles.navigation} aria-label="Primary navigation">
           {navigation.map((item) => (
             <a href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
@@ -52,28 +30,26 @@ export default function ConceptTwo() {
         </nav>
       </header>
 
-      <section className={styles.hero}>
-        <p className={`${styles.coordinate} ${styles.coordinateNorth}`}>
-          37.7142° N
-        </p>
-        <p className={`${styles.coordinate} ${styles.coordinateWest}`}>
-          89.2170° W
-        </p>
-
-        <div className={styles.titlePlate}>
-          <p className={styles.eyebrow}>Towards Intelligent Spatial Computing</p>
-          <h1>TWINS LAB</h1>
-          <p className={styles.intro}>
-            TWINS is a research lab working at the intersection of AI, machine
-            learning, and spatial sciences.
+      <section className={styles.hero} aria-labelledby="concept-title">
+        <div className={styles.preview}>
+          <h1 id="concept-title" className={styles.visuallyHidden}>
+            TWINS LAB
+          </h1>
+          <p className={styles.visuallyHidden}>
+            Towards Intelligent Spatial Computing
           </p>
         </div>
       </section>
 
       <footer className={styles.footer}>
-        <p>Southern Illinois University Carbondale</p>
-        <p>School of Computing</p>
-        <a href="/">Previous concept ↗</a>
+        <p>
+          TWINS is a research lab working at the intersection of AI, machine
+          learning, and spatial sciences.
+        </p>
+        <div>
+          <span>School of Computing</span>
+          <a href="/">Previous concept ↗</a>
+        </div>
       </footer>
     </main>
   );
