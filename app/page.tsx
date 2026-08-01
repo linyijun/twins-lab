@@ -42,16 +42,11 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="TWINS Lab home">
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-          </span>
           <span>TWINS LAB</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#research">Research</a>
-          <a href="#about">About</a>
-          <a href="#updates">Updates</a>
+          <a href="#team">Team</a>
           <a className="nav-cta" href="#join">
             Join us <span aria-hidden="true">↗</span>
           </a>
@@ -59,40 +54,18 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-map" aria-hidden="true">
-          <span className="contour contour-one" />
-          <span className="contour contour-two" />
-          <span className="route route-one" />
-          <span className="route route-two" />
-          <span className="route route-three" />
-          <span className="map-point point-one" />
-          <span className="map-point point-two" />
-          <span className="map-label label-one">37.7273 N / 89.2168 W</span>
-          <span className="map-label label-two">SPATIAL FIELD · 01</span>
-        </div>
+        <div className="hero-art" aria-hidden="true" />
 
         <div className="hero-copy">
+          <h1>TWINS LAB</h1>
           <p className="eyebrow">Towards Intelligent Spatial Computing</p>
-          <h1>
-            Intelligence
-            <br />
-            <em>has a place.</em>
-          </h1>
-          <p className="hero-description">
-            TWINS is a research lab exploring how artificial intelligence can
-            understand, model, and shape the spatial world.
-          </p>
-          <a className="text-link" href="#about">
+          <a className="text-link" href="#research">
             Discover our work <span aria-hidden="true">↓</span>
           </a>
         </div>
-
-        <p className="hero-index" aria-hidden="true">
-          01 / 04
-        </p>
       </section>
 
-      <section className="intro section-shell" id="about">
+      <section className="intro section-shell" id="team">
         <p className="section-kicker">About TWINS</p>
         <div className="intro-copy">
           <h2>

@@ -326,6 +326,63 @@ nav a:focus-visible::after {
   letter-spacing: 0.15em;
 }
 
+/* Compact image-led homepage title */
+.hero {
+  min-height: 610px;
+  height: min(72vh, 680px);
+  padding: 118px clamp(24px, 7vw, 108px) 62px;
+  background: #050506;
+}
+
+.hero::after {
+  z-index: 1;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: linear-gradient(90deg, #050506 0%, rgba(5, 5, 6, 0.94) 35%, rgba(5, 5, 6, 0.48) 66%, rgba(5, 5, 6, 0.08) 100%);
+}
+
+.hero-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 34%;
+  background-image: url("/twins-hero.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 207% auto;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(54px, 6.6vw, 92px);
+  font-weight: 760;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.hero .eyebrow {
+  margin: 24px 0 0;
+  color: var(--pink);
+  font-size: clamp(9px, 0.9vw, 12px);
+  letter-spacing: 0.18em;
+}
+
+.hero .eyebrow::before {
+  width: 48px;
+}
+
+.hero .text-link {
+  margin-top: 38px;
+}
+
 .section-shell {
   padding: 120px clamp(24px, 8vw, 124px);
 }
@@ -693,12 +750,9 @@ footer p {
 }
 
 @media (max-width: 900px) {
-  .site-header nav a:not(.nav-cta) {
-    display: none;
-  }
-
   .hero {
-    min-height: 760px;
+    min-height: 560px;
+    height: 68vh;
   }
 
   .intro {
@@ -743,14 +797,24 @@ footer p {
 
   .site-header {
     height: 74px;
+    padding-right: 18px;
+    padding-left: 18px;
   }
 
   .brand {
-    font-size: 12px;
+    font-size: 11px;
+  }
+
+  nav {
+    gap: 13px;
+  }
+
+  nav a {
+    font-size: 8px;
   }
 
   .nav-cta {
-    padding: 9px 11px;
+    padding: 8px 9px;
   }
 
   .nav-cta span {
@@ -758,12 +822,25 @@ footer p {
   }
 
   .hero {
-    min-height: 700px;
-    padding-top: 130px;
+    min-height: 520px;
+    height: 66vh;
+    padding: 110px 28px 48px;
+  }
+
+  .hero-art {
+    left: 18%;
+    opacity: 0.82;
+    background-size: auto 100%;
+    background-position: 83% center;
   }
 
   .hero h1 {
-    font-size: clamp(50px, 15vw, 76px);
+    font-size: clamp(48px, 14vw, 66px);
+  }
+
+  .hero .eyebrow {
+    max-width: 300px;
+    line-height: 1.6;
   }
 
   .section-shell,
