@@ -1,21 +1,5 @@
 import newsRaw from "../content/news.md?raw";
 import { Footer, Header } from "./components";
 import { entries } from "../lib/content";
-
-const news = entries(newsRaw);
-
-export default function Home() {
-  return <><Header/><main>
-    <section className="home-hero">
-      <div className="hero-title"><p>TOWARDS INTELLIGENT</p><h1>SPATIAL<br/>COMPUTING <i>(TWINS)</i></h1></div>
-      <div className="photo-nav" aria-label="Lab image highlights">
-        <div className="slide slide-a"><span>01 / 03</span><b>Intelligence grounded in place.</b></div>
-        <div className="slide slide-b"><span>02 / 03</span><b>Learning across space and time.</b></div>
-        <div className="slide slide-c"><span>03 / 03</span><b>From data to real-world impact.</b></div>
-      </div>
-    </section>
-    <section className="mission wrap"><p className="section-label">What we do</p><h2>Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>.</h2><p>We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by embedding spatial thinking into how machines learn, predict, and reason.</p></section>
-    <section className="themes wrap"><article><span>01</span><h3>Spatial prediction</h3><p>Reliable learning from sparse and irregular observations.</p></article><article><span>02</span><h3>Spatiotemporal forecasting</h3><p>Understanding dynamic systems across place and time.</p></article><article><span>03</span><h3>Knowledge extraction</h3><p>Connecting meaning across maps, text, and imagery.</p></article></section>
-    <section className="news wrap"><div className="section-head"><p className="section-label">News</p><h2>From the lab</h2></div><div className="news-list">{news.map((item)=><article key={item.title}><time>{item.title}</time><p>{item.body}</p></article>)}</div></section>
-  </main><Footer/></>;
-}
+const news=entries(newsRaw);
+export default function Home(){return <><Header/><main className="home-content wrap"><h1>TOWARDS INTELLIGENT SPATIAL COMPUTING (TWINS)</h1><p className="welcome">Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</p><section className="carousel" aria-label="Lab photo carousel"><div className="carousel-slide carousel-slide-1"><span className="carousel-caption">Spatial intelligence</span></div><div className="carousel-slide carousel-slide-2"><span className="carousel-caption">Learning from maps</span></div><div className="carousel-slide carousel-slide-3"><span className="carousel-caption">Science with impact</span></div><div className="dots" aria-hidden="true"><i/><i/><i/></div></section><section className="about-copy"><p>Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p><ul><li>How can machines learn reliably from sparse and irregular spatial observations?</li><li>How can intelligent systems understand change across space and time?</li><li>How can we extract useful knowledge from maps, imagery, and multimodal data?</li><li>How can spatial thinking make machine learning more reliable and useful?</li></ul><p>We work across environmental science, remote sensing, public health, digital humanities, and other domains where spatial intelligence can have meaningful impact.</p><p><strong>We are looking for passionate new students to join the team</strong> (<a href="/join-us">more info</a>)!</p></section><section className="news-box"><h2>News</h2>{news.map(item=><article className="news-item" key={item.title}><time>{item.title}</time><p>{item.body}</p></article>)}<a className="see-all" href="#">... see all News</a></section></main><Footer/></>}
