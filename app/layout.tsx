@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TWINS Lab — Intelligence has a place.",
     description: "Towards Intelligent Spatial Computing at Southern Illinois University Carbondale.",
-    images: [{ url: "/og-twins.png", width: 1731, height: 909, alt: "TWINS Lab — Intelligence has a place" }],
+    images: [{ url: "/og-twins.png", width: 1731, height: 909, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
   },
   twitter: {
     card: "summary_large_image",
