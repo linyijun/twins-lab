@@ -1,11 +1,15 @@
 import joinRaw from "../content/join.md?raw";
 import researchRaw from "../content/research.md?raw";
+import publicationGroups from "../content/publications.json";
 import teamRaw from "../content/team.md?raw";
 import { entries, sections } from "../lib/content";
 import { Footer, Header } from "./components";
 
 const groups = sections(teamRaw);
-const projects = sections(researchRaw).flatMap(group => entries(group.body));
+const projects = sections(researchRaw).flatMap(group => entries(group.body)).map(project => ({
+  ...project,
+  publications: publicationGroups[project.fields.publications as keyof typeof publicationGroups] ?? [],
+}));
 const openings = sections(joinRaw)[0].body.split(/^## /m);
 
 export default function Home() {
@@ -24,19 +28,19 @@ export default function Home() {
       </figure>
       <div className="wrap content-wrap">
       <section id="about" className="about-copy" aria-label="Research overview">
-        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</p>
-        <p>Our research connects <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
+        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research connects <strong className="research-emphasis">computer science</strong> and <strong className="research-emphasis">spatial sciences</strong>.</p>
+        <p>We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
           <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
           <li>How can intelligent systems understand change across space and time?</li>
           <li>How can we extract useful knowledge from maps, imagery, and multimodal data?</li>
           <li>How can spatial thinking make machine learning more reliable and useful?</li>
         </ul>
-        <p>We work across environmental science, remote sensing, public health, digital humanities, and other domains where spatial intelligence can have meaningful impact.</p>
+        <p>We work across environmental science, soil science, remote sensing, public health, digital humanities, and other domains where spatial intelligence can have meaningful impact.</p>
         <p><strong>We are looking for passionate new students to join the team</strong> (<a href="#join-us">more info</a>)!</p>
       </section>
       <section id="research" className="home-section" aria-labelledby="research-title">
-        <h2 id="research-title" className="section-title">Research Projects</h2>
+        <h2 id="research-title" className="section-title">What we are doing</h2>
         <div className="project-list">
           {projects.map(project => <article className="research-project" key={project.title}>
             <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
@@ -45,6 +49,15 @@ export default function Home() {
             <div>
               <h3>{project.title}</h3>
               <p>{project.body}</p>
+            </div>
+            <div className="project-publications">
+              <h4>Publications</h4>
+              <ul className="publication-list">
+                {project.publications.map(paper => <li key={paper.url}>
+                  <span className="publication-venue">{paper.venue} {paper.year}</span>
+                  <a href={paper.url}>{paper.title}</a>
+                </li>)}
+              </ul>
             </div>
           </article>)}
         </div>

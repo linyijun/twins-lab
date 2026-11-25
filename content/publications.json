@@ -1,0 +1,86 @@
+{
+  "spatial": [
+    {
+      "title": "Learning Context-Local Representation with Geospatial Foundation Model for Fine-Scale Spatial Prediction",
+      "venue": "SIGSPATIAL",
+      "year": 2026,
+      "url": "https://drive.google.com/file/d/1fpe_hijIEL4CEwhRPTm6h8FvzixoQIUy/view?usp=drivesdk"
+    },
+    {
+      "title": "Fine-Scale Soil Mapping in Alaska with Multimodal Machine Learning",
+      "venue": "SIGSPATIAL",
+      "year": 2025,
+      "url": "https://doi.org/10.1145/3748636.3764170"
+    },
+    {
+      "title": "Building Autocorrelation-Aware Representations for Fine-Scale Spatiotemporal Prediction",
+      "venue": "ICDM",
+      "year": 2020,
+      "url": "https://doi.org/10.1109/ICDM50108.2020.00044"
+    },
+    {
+      "title": "Mining Public Datasets for Modeling Intra-City PM2.5 Concentrations at a Fine Spatial Resolution",
+      "venue": "SIGSPATIAL",
+      "year": 2017,
+      "url": "https://doi.org/10.1145/3139958.3140013"
+    }
+  ],
+  "spatiotemporal": [
+    {
+      "title": "Estimating Mutual Information between Time Series and Temporal Event Sequences Across Diverse Analysis Tasks",
+      "venue": "KDD",
+      "year": 2026,
+      "url": "https://doi.org/10.1145/3770855.3817693"
+    },
+    {
+      "title": "Modeling Spatially Varying Physical Dynamics for Spatiotemporal Predictive Learning",
+      "venue": "SIGSPATIAL",
+      "year": 2023,
+      "url": "https://doi.org/10.1145/3589132.3625648"
+    },
+    {
+      "title": "A Semi-Supervised Learning Approach for Abnormal Event Prediction on Large Network Operation Time-Series Data",
+      "venue": "IEEE Big Data",
+      "year": 2022,
+      "url": "https://doi.org/10.1109/BigData55660.2022.10020157"
+    },
+    {
+      "title": "Exploiting Spatiotemporal Patterns for Accurate Air Quality Forecasting using Deep Learning",
+      "venue": "SIGSPATIAL",
+      "year": 2018,
+      "url": "https://doi.org/10.1145/3274895.3274907"
+    }
+  ],
+  "maps": [
+    {
+      "title": "An Ensemble Approach to Text-Based Georeferencing of Historical Maps",
+      "venue": "SIGSPATIAL",
+      "year": 2026,
+      "url": "https://drive.google.com/file/d/1zJ5nt7b9W0n4nZWrqo2yAvOCHmmtDzws/view?usp=drivesdk"
+    },
+    {
+      "title": "Hierarchical In-Context Learning with LLM for Text Linking on Historical Maps",
+      "venue": "GeoSearch at SIGSPATIAL",
+      "year": 2026,
+      "url": "https://geosearch-workshop.github.io/geosearch2026/"
+    },
+    {
+      "title": "LIGHT: Multi-modal Text Linking on Historical Maps",
+      "venue": "ICDAR",
+      "year": 2025,
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-04617-8_4"
+    },
+    {
+      "title": "Hyper-Local Deformable Transformers for Text Spotting on Historical Maps",
+      "venue": "KDD",
+      "year": 2024,
+      "url": "https://doi.org/10.1145/3637528.3671589"
+    },
+    {
+      "title": "The mapKurator System: A Complete Pipeline for Extracting and Linking Text from Historical Maps",
+      "venue": "SIGSPATIAL",
+      "year": 2023,
+      "url": "https://doi.org/10.1145/3589132.3625579"
+    }
+  ]
+}
