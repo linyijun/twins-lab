@@ -4,6 +4,7 @@ import teamRaw from "../content/team.md?raw";
 import { entries, sections } from "../lib/content";
 import { Footer, Header } from "./components";
 import { SpatialPredictionAnimation } from "./spatial-prediction-animation";
+import { SpatiotemporalAnimation } from "./spatiotemporal-animation";
 
 const groups = sections(teamRaw);
 const projects = sections(researchRaw).flatMap(group => entries(group.body));
@@ -70,8 +71,8 @@ export default function Home() {
       <section id="research" className="home-section" aria-labelledby="research-title">
         <h2 id="research-title" className="section-title">What we are doing</h2>
         <div className="project-list">
-          {projects.map(project => <article className="research-project" key={project.title}>
-            {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
+          {projects.map(project => <article className="research-project" data-animation={project.fields.animation} key={project.title}>
+            {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
               <img className="project-figure" src={project.fields.image} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
             </a>}
             <div>
