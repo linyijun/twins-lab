@@ -48,10 +48,9 @@ export default function Home() {
                 height={136}
               />
               <div>
-                <h4>{person.title}</h4>
+                <h4>{person.fields.link ? <a href={person.fields.link}>{person.title}</a> : person.title}</h4>
                 <p>{person.fields.role}</p>
                 <span>{person.fields.institute}</span>
-                {person.fields.link && <a className="home-link" href={person.fields.link}>Home page</a>}
               </div>
             </article>)}
           </div>

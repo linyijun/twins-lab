@@ -43,22 +43,22 @@ main { min-height: calc(100vh - 190px); }
 .about-copy li { position: relative; margin: 12px 0; padding-left: 29px; }
 .about-copy li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 10px; background: var(--mint); border: 2px solid var(--black); border-radius: 3px; transform: rotate(-12deg); }
 .about-copy strong { font-weight: 800; }
-.home-section { margin-top: 40px; padding: 30px; border: 1px solid var(--line); border-radius: 18px; scroll-margin-top: 24px; }
-#team { background: #edf5fa; border-color: #c8dbe7; }
-#join-us { background: #fcf0f3; border-color: #e7cfd6; }
+.home-section { margin-top: 40px; padding: 30px; border: 2px solid var(--black); border-radius: 14px 14px 14px 5px; box-shadow: 3px 3px 0 var(--black); scroll-margin-top: 24px; }
+#team { background: #edf5fa; }
+#join-us { background: #fcf0f3; }
 .section-title { margin: 0 0 12px; color: var(--black); font: 800 28px/1.35 var(--round-font); }
 .section-lead { margin: 16px 0 26px; }
-.subheading { margin: 28px 0 18px; color: var(--black); font: 800 22px/1.4 var(--round-font); }
+.subheading { margin: 28px 0 18px; color: var(--black); font: inherit; }
 .team-group { margin-bottom: 38px; }
 .team-group:last-child { margin-bottom: 0; }
 .people-list { display: flex; align-items: flex-start; gap: 48px; }
 .person { display: flex; flex: 1; min-width: 0; align-items: flex-start; gap: 20px; }
 .person > div { min-width: 0; }
 .portrait { flex: 0 0 112px; width: 112px; height: 136px; object-fit: cover; border-radius: 12px; }
-.person h4 { margin: 0 0 8px; color: var(--black); font: 800 21px/1.4 var(--round-font); }
+.person h4 { margin: 0 0 8px; color: var(--black); font: inherit; font-weight: 700; }
+.person h4 a { color: inherit; text-decoration: underline; }
 .person p { margin: 0 0 6px; }
-.person span { color: #606060; font-size: 14px; }
-.person .home-link { display: block; width: fit-content; margin-top: 10px; font-weight: 700; }
+.person span { font: inherit; }
 .openings { display: flex; flex-direction: column; gap: 18px; }
 .openings strong { color: var(--black); font-weight: 700; }
 .openings p { margin: 0; }
@@ -83,6 +83,4 @@ footer { background: #fff; border-top: 1px solid var(--line); color: var(--text)
   .home-section { padding: 20px; }
   .person { gap: 18px; }
   .portrait { flex-basis: 92px; width: 92px; height: 112px; }
-  .person h4 { font-size: 19px; }
-  .person p { font-size: 15px; }
 }
