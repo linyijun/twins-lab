@@ -85,14 +85,14 @@ export function SpatiotemporalAnimation() {
       </svg>
     </button>}
     <style>{`
-      .spatiotemporal-animation{position:relative;width:100%;aspect-ratio:1;isolation:isolate}
+      .spatiotemporal-animation{position:relative;width:100%;max-width:280px;margin-inline:auto;aspect-ratio:1;isolation:isolate}
       .spatiotemporal-animation>svg{display:block;width:100%;height:100%}
       .spatiotemporal-animation[data-paused="true"] .st-motion{animation-play-state:paused!important}
       .spatiotemporal-animation .st-sea-frame{opacity:0;animation-duration:${seaDurationMs * 2 / 1000}s;animation-timing-function:steps(1,end);animation-iteration-count:infinite}
-      .spatiotemporal-playback{position:absolute;right:10px;bottom:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid #d6d6d6;border-radius:50%;color:#555;background:#ffffffeb;cursor:pointer;padding:0}
+      .spatiotemporal-playback{position:absolute;right:10px;bottom:-4px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid #d6d6d6;border-radius:50%;color:#555;background:#ffffffeb;cursor:pointer;padding:0}
       .spatiotemporal-playback:hover{color:#111;background:var(--pink)}
       .spatiotemporal-playback:focus-visible{outline:2px solid #555;outline-offset:3px}
-      @media(max-width:640px){.research-project[data-animation="spatiotemporal"]{grid-template-columns:1fr}.spatiotemporal-animation{max-width:340px;margin:0 auto 12px}}
+      @media(max-width:640px){.research-project[data-animation="spatiotemporal"]{grid-template-columns:1fr}.spatiotemporal-animation{margin:0 auto 12px}}
       @media(prefers-reduced-motion:reduce){.spatiotemporal-animation .st-motion{animation:none!important}.spatiotemporal-animation .st-sea-frame{opacity:0!important}.spatiotemporal-animation .st-sea-frame[data-frame="0"]{opacity:1!important}.spatiotemporal-playback{display:none}}
       ${seaFrameRules}
       ${SCENE_ANIMATION_CSS}

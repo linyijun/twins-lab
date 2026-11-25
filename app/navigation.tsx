@@ -46,7 +46,9 @@ export function Navigation() {
       aria-controls="site-navigation-links"
       onClick={() => setOpen(value => !value)}
     >
-      <span className="navigation-chevron" aria-hidden="true" />
+      <svg className="navigation-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+        <path d="m4 7 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
     </button>
     <div id="site-navigation-links" className="navigation-dropdown" hidden={!open}>
       <a href="/#research" onClick={() => setOpen(false)}>Research</a>
