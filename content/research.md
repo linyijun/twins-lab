@@ -2,8 +2,8 @@
 
 ## Spatial Prediction
 publications: spatial
-image: /research/spatial-prediction-cartoon.png
-alt: Cartoon schematic showing sparse observations on a landscape passing through a learning model to produce a continuous spatial prediction map
+image: /research/spatial-prediction-cartoon-v2.png
+alt: Cartoon showing three field measurement stations on dry land and environmental feature maps feeding a neural network to predict fine-scale spatial variation across the landscape
 width: 1254
 height: 1254
 We develop machine learning methods for fine-scale spatial prediction from sparse observations and multimodal data. Applications include soil and permafrost mapping in Alaska with MISO, and air quality mapping with DeepLATTE.
