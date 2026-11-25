@@ -72,12 +72,14 @@ export default function Home() {
         <h2 id="research-title" className="section-title">What we are doing</h2>
         <div className="project-list">
           {projects.map(project => <article className="research-project" data-animation={project.fields.animation} key={project.title}>
-            {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
-              <img className="project-figure" src={project.fields.image} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
-            </a>}
-            <div>
+            <div className="project-copy">
               <h3>{project.title}</h3>
               <ResearchDescription text={project.body} />
+            </div>
+            <div className="project-visual" data-animated={Boolean(project.fields.animation) || project.fields.image.endsWith(".gif")}>
+              {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
+                <img className="project-figure" src={project.fields.image} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
+              </a>}
             </div>
           </article>)}
         </div>
@@ -85,6 +87,7 @@ export default function Home() {
       <section id="team" className="home-section" aria-labelledby="team-title">
         <h2 id="team-title" className="section-title">Group Members</h2>
         {groups.map(group => <div className="team-group" key={group.title}>
+          <h3 className={group.title === "Lab Directors" ? "visually-hidden" : "team-group-title"}>{group.title}</h3>
           <div className="people-list">
             {entries(group.body).map(person => <article className="person" key={person.title}>
               <img
@@ -95,20 +98,17 @@ export default function Home() {
                 height={112}
               />
               <div>
-                <h3>{person.fields.link ? <a href={person.fields.link}>{person.title}</a> : person.title}</h3>
+                <h4>{person.fields.link ? <a href={person.fields.link}>{person.title}</a> : person.title}</h4>
                 <p>{person.fields.role}</p>
                 <span>{person.fields.institute}</span>
               </div>
             </article>)}
           </div>
         </div>)}
-        <div className="team-group">
-          <h3 className="team-group-title">PhD Students</h3>
-        </div>
       </section>
       <section id="join-us" className="home-section" aria-labelledby="join-title">
         <h2 id="join-title" className="section-title">Open positions</h2>
-        <p className="section-lead">{openings[0].trim()} To apply, email <a href="mailto:yijunlinnn@gmail.com">the lab director</a> with your resume and a short description of your research interests.</p>
+        <p className="section-lead">{openings[0].trim()} To apply, email the lab director with your resume and a short description of your research interests.</p>
         <div className="openings">
           {openings.slice(1).map(part => {
             const [title, ...body] = part.trim().split("\n");

@@ -55,7 +55,7 @@ export function SpatialPredictionAnimation() {
     data-started={started}
     data-paused={paused || !visible}
   >
-    <svg viewBox="0 0 1000 1000" role="img" aria-labelledby={`${id}-title ${id}-description`}>
+    <svg viewBox="0 130 1000 760" role="img" aria-labelledby={`${id}-title ${id}-description`}>
       <title id={`${id}-title`}>Spatial prediction from sparse observations</title>
       <desc id={`${id}-description`}>Three eye-shaped map pins identify field observations on a land grid. Mountain ridges, foreground hills, and contour lines show the terrain. Starting from the observed cells, colors gradually fill nearby cells, then more distant cells. Equally distant cells fill together. The river, terrain, grid, and observation markers stay fixed.</desc>
       <defs>
@@ -112,7 +112,7 @@ export function SpatialPredictionAnimation() {
       </svg>
     </button>}
     <style>{`
-      .spatial-prediction-animation{position:relative;width:100%;aspect-ratio:1;isolation:isolate}
+      .spatial-prediction-animation{position:relative;width:100%;aspect-ratio:1000 / 760;isolation:isolate}
       .spatial-prediction-animation>svg{display:block;width:100%;height:100%}
       .spatial-prediction-animation .prediction-cell{opacity:0}
       .spatial-prediction-animation[data-started="true"] .prediction-cell{animation-duration:${ANIMATION_SECONDS}s;animation-timing-function:linear;animation-iteration-count:infinite}

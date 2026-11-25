@@ -10,3 +10,10 @@ link: https://linyijun.github.io/
 role: Lab Directors of Morale
 institute: Experts in naps, keyboards, and spatial occupation
 photo: /people/junyuan.jpg
+
+# PhD Students
+
+## Example Student
+role: PhD Student
+institute: Placeholder profile
+photo: /people/phd-placeholder.png

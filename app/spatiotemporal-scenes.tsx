@@ -62,36 +62,55 @@ export function HumanMobilityScene() {
   </g>;
 }
 
-function Cloud() {
-  return <path d="M-52 19C-83 19-88-17-58-29C-63-58-22-72-3-46C20-68 57-43 50-19C83-11 84 24 54 25Z" fill="#fbfefd" stroke={ink} strokeWidth="5" strokeLinejoin="round" />;
+function TrafficCar({ color }: { color: string }) {
+  return <g stroke={ink} strokeWidth="3" strokeLinejoin="round">
+    <rect x="-14" y="-16" width="10" height="6" rx="2" fill={ink} />
+    <rect x="10" y="-16" width="10" height="6" rx="2" fill={ink} />
+    <rect x="-14" y="10" width="10" height="6" rx="2" fill={ink} />
+    <rect x="10" y="10" width="10" height="6" rx="2" fill={ink} />
+    <rect x="-25" y="-12" width="52" height="24" rx="8" fill={color} />
+    <path d="M-12-9H7L13-6V6L7 9H-12L-17 6V-6Z" fill="#e7f5f7" strokeWidth="2" />
+    <path d="M7-9V9M-11-9V9" fill="none" strokeWidth="2" />
+    <path d="M23-7V-3M23 3V7" fill="none" stroke="#fffdf5" strokeWidth="3" strokeLinecap="round" />
+  </g>;
 }
 
-export function RainfallScene() {
+export function TrafficVolumeScene() {
+  const colors = ["#c8b4e5", "#f5d3b8", "#91d9cc", "#b6d9e9", "#c5e4bd", "#e9d6ad"];
+  const car = (index: number, westbound: boolean) => <g
+    key={index}
+    className={`st-motion st-traffic-car ${westbound ? "st-traffic-west" : "st-traffic-east"}`}
+    data-extra={index !== 2 && index !== 5}
+    style={{ animationDelay: `${-index * 8 / 6}s`, transform: `translate(${25 + index * 70}px,0)` }}
+  >
+    <g transform={westbound ? "rotate(180)" : undefined}>
+      <TrafficCar color={colors[index]} />
+    </g>
+  </g>;
   return <g aria-hidden="true">
-    <rect width="400" height="300" fill="#eef8fb" />
-    <path d="M0 237Q73 175 155 228Q211 191 262 226Q325 174 400 229V300H0Z" fill="#c8e7be" stroke={ink} strokeWidth="4" strokeLinejoin="round" />
-    <path d="M0 264Q89 225 169 265Q283 214 400 258V300H0Z" fill="#a9d9bd" />
-    <path d="M0 264Q89 225 169 265Q283 214 400 258" fill="none" stroke="#709a7d" strokeWidth="3" />
-    <g stroke={ink} strokeWidth="4" strokeLinejoin="round">
-      <path d="M278 246V216H312V246Z" fill="#f5d3b8" />
-      <path d="m272 217 23-22 23 22Z" fill="#c6b7df" />
-      <rect x="290" y="226" width="10" height="20" fill="#eef8fb" />
+    <rect width="400" height="300" fill="#dcebd9" />
+    <g fill="#f5f6ef" stroke={ink} strokeWidth="4" strokeLinejoin="round">
+      <rect x="24" y="19" width="73" height="48" rx="5" />
+      <rect x="132" y="13" width="93" height="54" rx="5" fill="#d7c5e6" />
+      <rect x="274" y="19" width="97" height="48" rx="5" fill="#f5d3b8" />
+      <rect x="24" y="240" width="94" height="42" rx="5" fill="#f5d3b8" />
+      <rect x="155" y="240" width="73" height="48" rx="5" />
+      <rect x="277" y="240" width="94" height="42" rx="5" fill="#d7c5e6" />
     </g>
-    <g className="st-motion st-distant-cloud">
-      <g transform="scale(.64)"><Cloud /></g>
+    <g fill="#b4d6df" stroke={ink} strokeWidth="2.5">
+      <path d="M38 31h17v22H38ZM66 31h17v22H66ZM146 28h22v25h-22ZM187 28h22v25h-22ZM289 32h25v21h-25ZM334 32h23v21h-23Z" />
+      <path d="M40 252h24v18H40ZM80 252h24v18H80ZM170 253h18v21h-18ZM201 253h15v21h-15ZM294 252h24v18h-24ZM334 252h21v18h-21Z" />
     </g>
-    <g className="st-motion st-rain-cloud">
-      <g stroke="#357a99" strokeWidth="2.5" strokeLinejoin="round" fill="#8cd0e5">
-        {[-53, -24, 6, 36, 64].map((x, index) => <g key={x} transform={`translate(${x} ${42 + index % 2 * 14})`}>
-          <path className={`st-motion st-raindrop st-drop-${index}`} d="M0-7C-2-3-7 3-7 7a7 7 0 0 0 14 0C7 3 2-3 0-7Z" />
-        </g>)}
+    <path d="M0 88H400V218H0Z" fill="#e6ebed" />
+    <path d="M0 88H400M0 218H400" fill="none" stroke={ink} strokeWidth="5" />
+    <path d="M0 153H400" fill="none" stroke="#fff" strokeWidth="4" strokeDasharray="20 15" />
+    <path d="M0 99H400M0 207H400" fill="none" stroke="#fff" strokeWidth="2.5" />
+    {[false, true].map(westbound => <g key={String(westbound)} transform={`translate(0,${westbound ? 184 : 121})`}>
+      {[2, 5].map(index => car(index, westbound))}
+      <g className="st-motion st-traffic-volume st-traffic-extra">
+        {[0, 1, 3, 4].map(index => car(index, westbound))}
       </g>
-      <Cloud />
-    </g>
-    <g className="st-motion st-rain-puddle" fill="#b4dfec" stroke="#73b1c9" strokeWidth="2.5">
-      <ellipse cx="114" cy="264" rx="31" ry="7" />
-      <ellipse cx="210" cy="244" rx="22" ry="5" />
-    </g>
+    </g>)}
   </g>;
 }
 
@@ -120,13 +139,10 @@ export const SCENE_ANIMATION_CSS = `
 @keyframes st-walk-two{0%,100%{transform:translate(285px,245px)}25%,75%{transform:translate(285px,150px)}50%{transform:translate(170px,150px)}}
 @keyframes st-walk-three{0%,100%{transform:translate(355px,150px)}25%,75%{transform:translate(285px,150px)}50%{transform:translate(285px,55px)}}
 @keyframes st-walk-four{0%,100%{transform:translate(40px,150px)}25%,75%{transform:translate(120px,150px)}50%{transform:translate(120px,245px)}}
-.st-rain-cloud{animation-name:st-rain-cloud;transform:translate(115px,100px)}
-.st-distant-cloud{animation-name:st-distant-cloud;transform:translate(285px,65px)}
-@keyframes st-rain-cloud{0%,100%{transform:translate(115px,100px)}50%{transform:translate(270px,100px)}}
-@keyframes st-distant-cloud{0%,100%{transform:translate(285px,65px)}50%{transform:translate(135px,65px)}}
-.st-raindrop{animation-name:st-rain-fall;animation-duration:2s;opacity:.9}
-.st-drop-0{animation-delay:-.2s}.st-drop-1{animation-delay:-1.2s}.st-drop-2{animation-delay:-.7s}.st-drop-3{animation-delay:-1.7s}.st-drop-4{animation-delay:-.4s}
-@keyframes st-rain-fall{0%{transform:translate(0,0);opacity:0}12%{opacity:1}82%{opacity:1}100%{transform:translate(-13px,70px);opacity:0}}
-.st-rain-puddle{animation-name:st-rain-puddle;opacity:.65}
-@keyframes st-rain-puddle{0%,100%{opacity:.4}50%{opacity:1}}
+.st-traffic-east{animation-name:st-traffic-east}
+.st-traffic-west{animation-name:st-traffic-west}
+@keyframes st-traffic-east{from{transform:translate(-100px,0)}to{transform:translate(500px,0)}}
+@keyframes st-traffic-west{from{transform:translate(500px,0)}to{transform:translate(-100px,0)}}
+.st-traffic-volume{animation-name:st-traffic-volume;opacity:1}
+@keyframes st-traffic-volume{0%,12.5%,100%{opacity:0}31.25%,65%{opacity:1}87.5%{opacity:0}}
 `;

@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import seaTemperature from "../content/sea-temperature-frames.json";
-import { HumanMobilityScene, MovingDigitsScene, RainfallScene, SCENE_ANIMATION_CSS } from "./spatiotemporal-scenes";
+import { HumanMobilityScene, MovingDigitsScene, TrafficVolumeScene, SCENE_ANIMATION_CSS } from "./spatiotemporal-scenes";
 
 const seaDurationMs = seaTemperature.durationsMs.reduce((sum, duration) => sum + duration, 0);
 let elapsedMs = 0;
@@ -37,11 +37,10 @@ function SeaTemperatureScene() {
 
 function ScenePanel({ x, y, label, clipId, children }: { x: number; y: number; label: string; clipId: string; children: ReactNode }) {
   return <g transform={`translate(${x} ${y})`} role="group" aria-label={label}>
-    <rect x="6" y="7" width="430" height="380" rx="22" fill="#d7c5e6" />
-    <rect width="430" height="380" rx="22" fill="#fff" stroke="#202625" strokeWidth="5" />
-    <defs><clipPath id={clipId}><rect width="400" height="300" rx="12" /></clipPath></defs>
-    <g transform="translate(15 15)" clipPath={`url(#${clipId})`}>{children}</g>
-    <text x="22" y="355" fill="#202625" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontWeight="700" fontSize="46">{label}</text>
+    <rect className="st-panel-background" width="450" height="400" fill="#fff" />
+    <defs><clipPath id={clipId}><rect width="400" height="300" /></clipPath></defs>
+    <g transform="scale(1.125)" clipPath={`url(#${clipId})`}>{children}</g>
+    <text x="225" y="378" textAnchor="middle" fill="#202625" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontWeight="400" fontSize="34">{label}</text>
   </g>;
 }
 
@@ -65,11 +64,17 @@ export function SpatiotemporalAnimation() {
   return <div ref={frame} className="spatiotemporal-animation" data-paused={paused || !visible || reducedMotion}>
     <svg viewBox="0 0 1000 1000" role="img" aria-labelledby={`${id}-title ${id}-description`}>
       <title id={`${id}-title`}>Four spatiotemporal modeling scenarios</title>
-      <desc id={`${id}-description`}>Four cartoon scenes move together: evolving sea-surface temperature patterns adapted from the original SVPNet animation, two moving digits, people traveling through city streets, and rainfall over terrain.</desc>
-      <ScenePanel x={40} y={60} label="Sea surface temp." clipId={`${id}-sea`}><SeaTemperatureScene /></ScenePanel>
-      <ScenePanel x={530} y={60} label="Moving digits" clipId={`${id}-digits`}><MovingDigitsScene /></ScenePanel>
-      <ScenePanel x={40} y={530} label="Human mobility" clipId={`${id}-mobility`}><HumanMobilityScene /></ScenePanel>
-      <ScenePanel x={530} y={530} label="Rainfall" clipId={`${id}-rain`}><RainfallScene /></ScenePanel>
+      <desc id={`${id}-description`}>Four adjoining cartoon scenes move together: evolving sea-surface temperature patterns adapted from the original SVPNet animation, two moving digits, people traveling through city streets, and changing traffic volume on a road.</desc>
+      <defs><clipPath id={`${id}-panels`}><rect x="50" y="90" width="900" height="800" rx="20" /></clipPath></defs>
+      <rect x="56" y="97" width="900" height="800" rx="20" fill="#d7c5e6" />
+      <g clipPath={`url(#${id}-panels)`}>
+        <ScenePanel x={50} y={90} label="Sea surface temp." clipId={`${id}-sea`}><SeaTemperatureScene /></ScenePanel>
+        <ScenePanel x={500} y={90} label="Moving digits" clipId={`${id}-digits`}><MovingDigitsScene /></ScenePanel>
+        <ScenePanel x={50} y={490} label="Human mobility" clipId={`${id}-mobility`}><HumanMobilityScene /></ScenePanel>
+        <ScenePanel x={500} y={490} label="Traffic volume" clipId={`${id}-traffic`}><TrafficVolumeScene /></ScenePanel>
+      </g>
+      <rect x="50" y="90" width="900" height="800" rx="20" fill="none" stroke="#202625" strokeWidth="5" />
+      <path d="M500 90V890M50 490H950" fill="none" stroke="#202625" strokeWidth="3" />
     </svg>
     {!reducedMotion && <button type="button" className="spatiotemporal-playback"
       aria-label={paused ? "Resume spatiotemporal animations" : "Pause spatiotemporal animations"}

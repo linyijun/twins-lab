@@ -56,26 +56,30 @@ main { min-height: calc(100vh - 190px); }
 #team { background: #e5f2fb; }
 #join-us { background: #e8f5e9; }
 .section-title { margin: 0 0 12px; color: var(--black); font: 800 28px/1.35 var(--round-font); }
-.project-list { display: flex; flex-direction: column; gap: 32px; margin-top: 24px; }
-.research-project { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: 24px; }
+.project-list { display: flex; flex-direction: column; gap: 32px; margin-top: 12px; }
+.research-project { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: start; gap: 24px; }
 .research-project + .research-project { border-top: 1px solid rgb(24 24 24 / 25%); padding-top: 32px; }
+.project-copy { min-width: 0; }
+.research-project[data-animation="spatial-prediction"] .project-copy { padding-top: 24px; }
+.project-visual { width: 100%; min-width: 0; justify-self: end; }
+.project-visual[data-animated="true"] { max-width: 320px; }
 .project-figure-link { display: block; border-radius: 8px; }
 .project-figure { display: block; width: 100%; height: auto; border-radius: 8px; }
 .research-project h3 { margin: 0 0 6px; color: var(--black); font: 700 18px/1.4 var(--round-font); }
 .research-project p { margin: 0; }
 .research-project p + p { margin-top: 1em; }
-.research-citation { font-size: .875em; }
+.research-citation { font-size: .8125em; }
 .research-project p a { text-decoration: underline; text-decoration-thickness: 1px; }
 .section-lead { margin: 16px 0 26px; }
 .team-group { margin: 24px 0 38px; }
 .team-group:last-child { margin-bottom: 0; }
-.team-group-title { margin: 0; color: var(--black); font: 700 18px/1.4 var(--round-font); }
+.team-group-title { margin: 0 0 18px; color: var(--black); font: 700 18px/1.4 var(--round-font); }
 .people-list { display: flex; align-items: flex-start; gap: 48px; }
 .person { display: flex; flex: 1; min-width: 0; align-items: flex-start; gap: 20px; }
 .person > div { min-width: 0; }
 .portrait { flex: 0 0 112px; width: 112px; height: 112px; object-fit: cover; border-radius: 14px; }
-.person h3 { margin: 0 0 8px; color: var(--black); font: inherit; font-weight: 700; }
-.person h3 a { color: inherit; text-decoration: underline; }
+.person h4 { margin: 0 0 8px; color: var(--black); font: inherit; font-weight: 700; }
+.person h4 a { color: inherit; text-decoration: underline; }
 .person p { margin: 0 0 6px; }
 .person span { font: inherit; }
 .openings { display: flex; flex-direction: column; gap: 18px; }
@@ -104,5 +108,6 @@ footer { background: #fff; border-top: 1px solid var(--line); color: var(--text)
 }
 
 @media (max-width: 640px) {
-  .research-project { grid-template-columns: minmax(64px, 28%) minmax(0, 1fr); align-items: start; gap: 16px; }
+  .research-project { grid-template-columns: minmax(0, 1fr) minmax(64px, 28%); gap: 16px; }
+  .research-project[data-animation="spatial-prediction"] .project-copy { padding-top: 0; }
 }
