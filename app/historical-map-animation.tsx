@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-const earth = { x: 740, y: 680, radius: 205 };
+const earth = { x: 740, y: 680, radius: 145 };
 const radians = Math.PI / 180;
 function project(longitude: number, latitude: number) {
   const lat = latitude * radians;
@@ -94,12 +94,16 @@ export function HistoricalMapAnimation() {
             <circle cx="135" cy="215" r="7" />
           </g>
           <g className="hm-motion hm-words" data-stage="words" role="group" aria-label="Individual words" fill="#a7d9e730" stroke="#518b9c" strokeWidth="5">
+            <rect className="hm-word" x="68" y="150" width="272" height="58" rx="4" />
+            <rect className="hm-word" x="487" y="98" width="302" height="51" rx="4" />
             <rect className="hm-word" x="450" y="307" width="164" height="58" rx="4" />
             <rect className="hm-word" x="622" y="307" width="114" height="58" rx="4" />
             <rect className="hm-word" x="140" y="467" width="130" height="58" rx="4" />
             <rect className="hm-word" x="278" y="467" width="168" height="58" rx="4" />
           </g>
           <g className="hm-motion hm-phrase" data-stage="phrase" role="group" aria-label="Linked place names" fill="#b5dfc640" stroke="#527966" strokeWidth="6">
+            <rect x="63" y="143" width="282" height="70" rx="7" />
+            <rect x="482" y="91" width="312" height="63" rx="7" />
             <rect x="445" y="300" width="297" height="70" rx="7" />
             <rect x="135" y="460" width="317" height="70" rx="7" />
           </g>
@@ -110,8 +114,8 @@ export function HistoricalMapAnimation() {
         <circle cx={earth.x} cy={earth.y} r={earth.radius} fill="#b4e2eb" stroke="#202625" strokeWidth="6" />
         <g clipPath={`url(#${id}-earth)`}>
           <g fill="none" stroke="#75b4c6" strokeWidth="2" opacity=".7">
-            <ellipse cx={earth.x} cy={earth.y} rx="99" ry={earth.radius} />
-            <ellipse cx={earth.x} cy={earth.y} rx={earth.radius} ry="78" />
+            <ellipse cx={earth.x} cy={earth.y} rx={earth.radius * 99 / 205} ry={earth.radius} />
+            <ellipse cx={earth.x} cy={earth.y} rx={earth.radius} ry={earth.radius * 78 / 205} />
             <path d={`M${earth.x - earth.radius} ${earth.y}H${earth.x + earth.radius}M${earth.x} ${earth.y - earth.radius}V${earth.y + earth.radius}`} />
           </g>
           <g fill="#c3dfa9" stroke="#374d3b" strokeWidth="4" strokeLinejoin="round">
@@ -124,13 +128,13 @@ export function HistoricalMapAnimation() {
         <path d={connector} fill="none" stroke="#fff" strokeWidth="12" strokeLinecap="round" />
         <path d={connector} fill="none" stroke="#527966" strokeWidth="6" strokeLinecap="round" strokeDasharray="13 10" />
         <circle cx={mapLocation.x} cy={mapLocation.y} r="7" fill="#527966" />
-        <g transform={`translate(${amite.x} ${amite.y})`}>
+        <g transform={`translate(${amite.x} ${amite.y}) scale(${earth.radius / 205})`}>
           <path d="M0 0C-7-13-22-27-22-42a22 22 0 0 1 44 0C22-27 7-13 0 0Z" fill="#efc9ac" stroke="#202625" strokeWidth="4" strokeLinejoin="round" />
           <circle cy="-42" r="8" fill="#fff" stroke="#202625" strokeWidth="3" />
           <circle r="4" fill="#202625" />
         </g>
       </g>
-      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="34" textAnchor="middle">
+      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="40" textAnchor="middle">
         <text className="hm-motion hm-words" data-stage="caption-words" x="500" y="940">Words</text>
         <text className="hm-motion hm-place-caption" data-stage="caption-phrase" x="500" y="940">Place names</text>
         <text className="hm-motion hm-location-caption" data-stage="caption-location" x="500" y="940">Location on Earth</text>
