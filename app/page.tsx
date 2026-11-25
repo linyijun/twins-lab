@@ -108,7 +108,7 @@ export default function Home() {
         </div>)}
       </section>
       <section id="join-us" className="home-section" aria-labelledby="join-title">
-        <h2 id="join-title" className="section-title">Open positions</h2>
+        <h2 id="join-title" className="section-title">Join us</h2>
         <p className="section-lead">{openings[0].trim()} To apply, email the lab director with your resume and a short description of your research interests.</p>
         <div className="openings">
           {openings.slice(1).map(part => {

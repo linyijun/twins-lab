@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-const earth = { x: 740, y: 680, radius: 145 };
+const earth = { x: 824, y: 766, radius: 145 };
+const linkedMap = { x: 50, y: 95, scale: .8 };
 const radians = Math.PI / 180;
 function project(longitude: number, latitude: number) {
   const lat = latitude * radians;
@@ -25,8 +26,8 @@ const southAmerica = continent([[-78,8],[-71,8],[-60,5],[-50,0],[-35,-5],[-38,-1
 // https://tigerweb.geo.census.gov/tigerwebmain/Files/acs26/tigerweb_acs26_incplace_la.html
 // The globe is an illustrative orthographic projection centered at 95°W, 15°N.
 const amite = project(-90.5152858, 30.7321643);
-const mapLocation = { x: 50 + 564 * .63, y: 95 + 378 * .63 };
-const connector = `M${mapLocation.x} ${mapLocation.y}C560 351 602 521 ${amite.x} ${amite.y}`;
+const mapLocation = { x: linkedMap.x + 564 * linkedMap.scale, y: linkedMap.y + 378 * linkedMap.scale };
+const connector = `M${mapLocation.x} ${mapLocation.y}C640 420 670 620 ${amite.x} ${amite.y}`;
 
 export function HistoricalMapAnimation() {
   const id = useId().replace(/:/g, "");
@@ -134,7 +135,7 @@ export function HistoricalMapAnimation() {
           <circle r="4" fill="#202625" />
         </g>
       </g>
-      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="40" textAnchor="middle">
+      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="46" textAnchor="middle">
         <text className="hm-motion hm-words" data-stage="caption-words" x="500" y="940">Words</text>
         <text className="hm-motion hm-place-caption" data-stage="caption-phrase" x="500" y="940">Place names</text>
         <text className="hm-motion hm-location-caption" data-stage="caption-location" x="500" y="940">Location on Earth</text>
@@ -153,17 +154,17 @@ export function HistoricalMapAnimation() {
       .historical-map-animation[data-started="true"] .hm-motion{animation-duration:12s;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
       .historical-map-animation[data-paused="true"] .hm-motion{animation-play-state:paused}
       .hm-map{animation-name:hm-map-position}.hm-words{animation-name:hm-words}.hm-phrase{animation-name:hm-phrase}.hm-globe{animation-name:hm-globe}.hm-link{animation-name:hm-link}.hm-place-caption{animation-name:hm-place-caption}.hm-location-caption{animation-name:hm-location-caption}
-      @keyframes hm-map-position{0%,58.333%,100%{transform:translate(90px,100px) scale(1)}69%,95%{transform:translate(50px,95px) scale(.63)}}
+      @keyframes hm-map-position{0%,58.333%,100%{transform:translate(90px,100px) scale(1)}69%,95%{transform:translate(${linkedMap.x}px,${linkedMap.y}px) scale(${linkedMap.scale})}}
       @keyframes hm-words{0%,12.5%,37.5%,100%{opacity:0}16.666%,34%{opacity:1}}
       @keyframes hm-phrase{0%,36%,95%,100%{opacity:0}40%,91.666%{opacity:1}}
       @keyframes hm-globe{0%,58.333%,95%,100%{opacity:0}69%,91.666%{opacity:1}}
       @keyframes hm-link{0%,69%,95%,100%{opacity:0}75%,91.666%{opacity:1}}
       @keyframes hm-place-caption{0%,36%,61%,100%{opacity:0}40%,57%{opacity:1}}
       @keyframes hm-location-caption{0%,61%,95%,100%{opacity:0}69%,91.666%{opacity:1}}
-      .hm-playback{position:absolute;right:10px;bottom:10px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid #d6d6d6;border-radius:50%;color:#555;background:#ffffffeb;cursor:pointer;padding:0}
+      .hm-playback{position:absolute;right:10px;bottom:-8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid #d6d6d6;border-radius:50%;color:#555;background:#ffffffeb;cursor:pointer;padding:0}
       .hm-playback:hover{color:#111;background:#f5f5f5}.hm-playback:focus-visible{outline:2px solid #555;outline-offset:3px}
       @media(max-width:640px){.research-project[data-animation="historical-map"]{grid-template-columns:1fr}.historical-map-animation{margin:0 auto 12px}.hm-playback{right:0;bottom:-4px}}
-      @media(prefers-reduced-motion:reduce){.historical-map-animation .hm-motion{animation:none!important}.historical-map-animation .hm-map{transform:translate(50px,95px) scale(.63)}.historical-map-animation .hm-phrase,.historical-map-animation .hm-globe,.historical-map-animation .hm-link,.historical-map-animation .hm-location-caption{opacity:1}.historical-map-animation .hm-words,.historical-map-animation .hm-place-caption{opacity:0}.hm-playback{display:none}}
+      @media(prefers-reduced-motion:reduce){.historical-map-animation .hm-motion{animation:none!important}.historical-map-animation .hm-map{transform:translate(${linkedMap.x}px,${linkedMap.y}px) scale(${linkedMap.scale})}.historical-map-animation .hm-phrase,.historical-map-animation .hm-globe,.historical-map-animation .hm-link,.historical-map-animation .hm-location-caption{opacity:1}.historical-map-animation .hm-words,.historical-map-animation .hm-place-caption{opacity:0}.hm-playback{display:none}}
     `}</style>
   </div>;
 }
