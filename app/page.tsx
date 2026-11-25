@@ -15,7 +15,7 @@ export default function Home() {
       <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="wrap lab-banner">
         <img
-          src="/twins-hero-spatial-light.png"
+          src="/twins-hero-spatial-lowered.png"
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
           width={1843}
           height={853}
@@ -39,8 +39,13 @@ export default function Home() {
         <h2 id="research-title" className="section-title">Research Projects</h2>
         <div className="project-list">
           {projects.map(project => <article className="research-project" key={project.title}>
-            <h3>{project.title}</h3>
-            <p>{project.body}</p>
+            <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
+              <img className="project-figure" src={project.fields.image} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
+            </a>
+            <div>
+              <h3>{project.title}</h3>
+              <p>{project.body}</p>
+            </div>
           </article>)}
         </div>
       </section>
@@ -67,7 +72,7 @@ export default function Home() {
       </section>
       <section id="join-us" className="home-section" aria-labelledby="join-title">
         <h2 id="join-title" className="section-title">Open positions</h2>
-        <p className="section-lead">{openings[0].trim()} To apply, please fill in the <a href="https://docs.google.com/forms/d/1zaKcnVsgSr2NBNopvyJdROB7oCge13VNgUx63fwgR1c/viewform">application form</a>.</p>
+        <p className="section-lead">{openings[0].trim()} To apply, email <a href="mailto:yijunlinnn@gmail.com">yijunlinnn@gmail.com</a>. In your email, please include 1) your résumé and 2) a short description of your research interests.</p>
         <div className="openings">
           {openings.slice(1).map(part => {
             const [title, ...body] = part.trim().split("\n");

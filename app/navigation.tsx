@@ -41,11 +41,12 @@ export function Navigation() {
       ref={toggle}
       className="navigation-toggle"
       type="button"
+      aria-label="Toggle navigation"
       aria-expanded={open}
       aria-controls="site-navigation-links"
       onClick={() => setOpen(value => !value)}
     >
-      Menu <span className="navigation-chevron" aria-hidden="true" />
+      <span className="navigation-chevron" aria-hidden="true" />
     </button>
     <div id="site-navigation-links" className="navigation-dropdown" hidden={!open}>
       <a href="/#research" onClick={() => setOpen(false)}>Research</a>

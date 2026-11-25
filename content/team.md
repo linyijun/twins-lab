@@ -2,7 +2,7 @@
 
 ## Yijun Lin
 role: Lab Director · Assistant Professor
-institute: School of Computing, Southern Illinois University
+institute: School of Computing, SIU
 photo: /people/yijun.jpg
 link: https://linyijun.github.io/
 
