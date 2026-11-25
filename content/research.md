@@ -16,7 +16,7 @@ image: /research/svpnet-spatiotemporal-forecasting.gif
 alt: SVPNet animation of spatially varying physical dynamics
 width: 703
 height: 703
-We model spatial heterogeneity and temporal dynamics for forecasting [[Lin et al., SIGSPATIAL ’18](https://doi.org/10.1145/3274895.3274907); [Lin & Chiang, SIGSPATIAL ’23](https://doi.org/10.1145/3589132.3625648)], anomaly detection [[Lin & Chiang, BigData ’22](https://ieeexplore.ieee.org/abstract/document/10020157)], time-series analysis [[Hu et al., KDD ’26](https://doi.org/10.1145/3770855.3817693)], and human mobility analysis [[Lin et al., HuMob ’25](https://doi.org/10.1145/3748636.3771315)].
+We develop methods to model spatial heterogeneity and temporal dynamics for spatiotemporal forecasting [[Lin et al., SIGSPATIAL ’18](https://doi.org/10.1145/3274895.3274907); [Lin & Chiang, SIGSPATIAL ’23](https://doi.org/10.1145/3589132.3625648)], anomaly detection [[Lin & Chiang, BigData ’22](https://ieeexplore.ieee.org/abstract/document/10020157)], time-series analysis [[Hu et al., KDD ’26](https://doi.org/10.1145/3770855.3817693)], and human mobility analysis [[Lin et al., HuMob ’25](https://doi.org/10.1145/3748636.3771315)].
 
 ## Historical Map Understanding
 animation: historical-map
