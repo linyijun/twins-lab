@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TWINS Lab — Intelligent Spatial Computing",
     description: "Towards Intelligent Spatial Computing at Southern Illinois University Carbondale.",
-    images: [{ url: "/twins-hero-spatial.png", width: 1843, height: 853, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
+    images: [{ url: "/twins-hero-spatial-refined.png", width: 1843, height: 853, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TWINS Lab",
     description: "Towards Intelligent Spatial Computing",
-    images: ["/twins-hero-spatial.png"],
+    images: ["/twins-hero-spatial-refined.png"],
   },
   icons: {
     icon: "/favicon.svg",

@@ -13,7 +13,7 @@ export default function Home() {
       <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="lab-banner">
         <img
-          src="/twins-hero-spatial.png"
+          src="/twins-hero-spatial-refined.png"
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
           width={1843}
           height={853}
