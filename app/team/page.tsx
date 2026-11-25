@@ -1,4 +1,5 @@
-import teamRaw from "../../content/team.md?raw";
-import { entries, sections } from "../../lib/content";
-import { Footer, Header, PageHero } from "../components";
-export default function Team(){const groups=sections(teamRaw);return <><Header/><main className="page-shell"><PageHero eyebrow="People" title="Group Members"/><section>{groups.map(group=><div className="team-group" key={group.title}><h2 className="subheading">{group.title}</h2><div className="people-grid">{entries(group.body).map((p,i)=><article className="person" key={p.title}><div className={`portrait ${p.fields.photo?.includes("student")?`student-${i+1}`:""}`} style={p.fields.photo&&!p.fields.photo.includes("student")?{backgroundImage:`url(${p.fields.photo})`}:undefined}/><div><h3>{p.title}</h3><p>{p.fields.role}</p><span>{p.fields.institute}</span>{p.fields.link&&<a className="home-link" href={p.fields.link}>Home page</a>}</div></article>)}</div></div>)}</section></main><Footer/></>}
+import { permanentRedirect } from "next/navigation";
+
+export default function Team() {
+  permanentRedirect("/#team");
+}
