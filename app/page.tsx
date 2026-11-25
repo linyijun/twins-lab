@@ -9,16 +9,19 @@ const openings = sections(joinRaw)[0].body.split(/^## /m);
 export default function Home() {
   return <>
     <Header />
-    <main className="home-content wrap">
+    <main className="home-content">
+      <div className="wrap">
       <h1>TOWARDS INTELLIGENT SPATIAL COMPUTING (TWINS)</h1>
       <p className="welcome">Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</p>
+      </div>
       <section className="carousel" aria-label="Lab photo carousel">
         <div className="carousel-slide carousel-slide-1"><span className="carousel-caption">Spatial intelligence</span></div>
         <div className="carousel-slide carousel-slide-2"><span className="carousel-caption">Learning from maps</span></div>
         <div className="carousel-slide carousel-slide-3"><span className="carousel-caption">Science with impact</span></div>
         <div className="dots" aria-hidden="true"><i /><i /><i /></div>
       </section>
-      <section className="about-copy">
+      <div className="wrap">
+      <section id="research" className="about-copy" aria-label="Research overview">
         <p>Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
           <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
@@ -33,7 +36,7 @@ export default function Home() {
         <h2 id="team-title" className="section-title">Group Members</h2>
         {groups.map(group => <div className="team-group" key={group.title}>
           <h3 className="subheading">{group.title}</h3>
-          <div className="people-grid">
+          <div className="people-list">
             {entries(group.body).map((person, index) => <article className="person" key={person.title}>
               <div
                 className={`portrait ${person.fields.photo?.includes("student") ? `student-${index + 1}` : ""}`}
@@ -63,6 +66,7 @@ export default function Home() {
           })}
         </div>
       </section>
+      </div>
     </main>
     <Footer />
   </>;

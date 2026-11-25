@@ -18,15 +18,15 @@ export const metadata: Metadata = {
   description:
     "TWINS Lab explores how artificial intelligence can understand, model, and shape the spatial world.",
   openGraph: {
-    title: "TWINS Lab — Intelligence has a place.",
+    title: "TWINS Lab — Intelligent Spatial Computing",
     description: "Towards Intelligent Spatial Computing at Southern Illinois University Carbondale.",
-    images: [{ url: "/og-twins.png", width: 1731, height: 909, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
+    images: [{ url: "/twins-hero-v2.png", width: 1728, height: 910, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TWINS Lab",
     description: "Towards Intelligent Spatial Computing",
-    images: ["/og-twins.png"],
+    images: ["/twins-hero-v2.png"],
   },
   icons: {
     icon: "/favicon.svg",

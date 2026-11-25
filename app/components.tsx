@@ -1,7 +1,7 @@
-import Link from "next/link";
+import { Navigation } from "./navigation";
 
 export function Header() {
-  return <header className="site-header"><div className="site-header-inner"><Link className="brand" href="/">TWINS LAB @ SIU</Link><nav aria-label="Main navigation"><a href="/#team">Team</a><a href="/#join-us">Join us</a></nav></div></header>;
+  return <header className="site-header"><div className="site-header-inner"><a className="brand" href="/">TWINS LAB @ SIU</a><Navigation /></div></header>;
 }
 
 export function Footer() {
