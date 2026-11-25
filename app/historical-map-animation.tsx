@@ -135,7 +135,7 @@ export function HistoricalMapAnimation() {
           <circle r="4" fill="#202625" />
         </g>
       </g>
-      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="46" textAnchor="middle">
+      <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="46" fontWeight="700" textAnchor="middle">
         <text className="hm-motion hm-words" data-stage="caption-words" x="500" y="940">Words</text>
         <text className="hm-motion hm-place-caption" data-stage="caption-phrase" x="500" y="940">Place names</text>
         <text className="hm-motion hm-location-caption" data-stage="caption-location" x="500" y="940">Location on Earth</text>
