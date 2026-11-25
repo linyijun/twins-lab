@@ -9,8 +9,8 @@ const groups = sections(teamRaw);
 const projects = sections(researchRaw).flatMap(group => entries(group.body));
 const openings = sections(joinRaw)[0].body.split(/^## /m);
 
-function ResearchDescription({ text }: { text: string }) {
-  const links = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+function CitationLinks({ text }: { text: string }) {
+  const links = /\[([^\[\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
   const content = [];
   let position = 0;
 
@@ -21,7 +21,24 @@ function ResearchDescription({ text }: { text: string }) {
   }
 
   content.push(text.slice(position));
-  return <p>{content}</p>;
+  return <>{content}</>;
+}
+
+function ResearchDescription({ text }: { text: string }) {
+  return <>{text.split(/\n\s*\n/).map((paragraph, index) => {
+    const citations = /\[((?:\[[^\[\]]+\]\(https?:\/\/[^\s)]+\)(?:\s*[,;]\s*)?)+)\]/g;
+    const content = [];
+    let position = 0;
+
+    for (const match of paragraph.matchAll(citations)) {
+      content.push(paragraph.slice(position, match.index));
+      content.push(<span className="research-citation" key={match.index}>[<CitationLinks text={match[1]} />]</span>);
+      position = match.index! + match[0].length;
+    }
+
+    content.push(paragraph.slice(position));
+    return <p key={index}>{content}</p>;
+  })}</>;
 }
 
 export default function Home() {
@@ -84,10 +101,13 @@ export default function Home() {
             </article>)}
           </div>
         </div>)}
+        <div className="team-group">
+          <h3 className="team-group-title">PhD Students</h3>
+        </div>
       </section>
       <section id="join-us" className="home-section" aria-labelledby="join-title">
         <h2 id="join-title" className="section-title">Open positions</h2>
-        <p className="section-lead">{openings[0].trim()} To apply, email <a href="mailto:yijunlinnn@gmail.com">yijunlinnn@gmail.com</a>. In your email, please include 1) your résumé and 2) a short description of your research interests.</p>
+        <p className="section-lead">{openings[0].trim()} To apply, email <a href="mailto:yijunlinnn@gmail.com">the lab director</a> with your resume and a short description of your research interests.</p>
         <div className="openings">
           {openings.slice(1).map(part => {
             const [title, ...body] = part.trim().split("\n");

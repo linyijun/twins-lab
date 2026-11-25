@@ -15,8 +15,8 @@ export function entries(markdown: string) {
     const body: string[] = [];
     lines.forEach((line) => {
       const match = line.match(/^([a-z]+):\s*(.*)$/);
-      if (match) fields[match[1]] = match[2]; else if (line.trim()) body.push(line);
+      if (match) fields[match[1]] = match[2]; else body.push(line);
     });
-    return { title, fields, body: body.join(" ") };
+    return { title, fields, body: body.join("\n").trim() };
   });
 }
