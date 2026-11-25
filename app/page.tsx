@@ -10,21 +10,19 @@ export default function Home() {
   return <>
     <Header />
     <main className="home-content">
+      <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="lab-banner">
         <img
-          src="/twins-hero-cartoon.png"
+          src="/twins-hero-map.png"
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
-          width={1728}
+          width={1729}
           height={910}
           fetchPriority="high"
         />
       </figure>
       <div className="wrap content-wrap">
-      <div className="welcome-card">
-        <h1 className="welcome">Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</h1>
-      </div>
       <section id="research" className="about-copy" aria-label="Research overview">
-        <p>Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
+        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
           <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
           <li>How can intelligent systems understand change across space and time?</li>
@@ -39,10 +37,13 @@ export default function Home() {
         {groups.map(group => <div className="team-group" key={group.title}>
           <h3 className="subheading">{group.title}</h3>
           <div className="people-list">
-            {entries(group.body).map((person, index) => <article className="person" key={person.title}>
-              <div
-                className={`portrait ${person.fields.photo?.includes("student") ? `student-${index + 1}` : ""}`}
-                style={person.fields.photo && !person.fields.photo.includes("student") ? { backgroundImage: `url(${person.fields.photo})` } : undefined}
+            {entries(group.body).map(person => <article className="person" key={person.title}>
+              <img
+                className="portrait"
+                src={person.fields.photo}
+                alt={person.title}
+                width={112}
+                height={136}
               />
               <div>
                 <h4>{person.title}</h4>
