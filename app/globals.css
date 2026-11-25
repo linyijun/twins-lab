@@ -6,6 +6,7 @@
   --blue: #235e87;
   --line: #c9c9c9;
   --mint: #e3f6ea;
+  --pink: #f4d4df;
   --cartoon-radius: 18px 18px 18px 6px;
   --cartoon-shadow: 4px 4px 0 var(--black);
   --round-font: "Avenir Next", "Trebuchet MS", ui-rounded, sans-serif;
@@ -20,7 +21,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-
 
 .site-header { background: #fff; position: relative; z-index: 10; }
 .site-header-inner { width: min(970px, calc(100% - 40px)); min-height: 72px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { color: var(--black); font: 800 18px var(--round-font); letter-spacing: .02em; border-radius: 4px; box-shadow: inset 0 -7px 0 #ccebdc; }
+.brand { color: var(--black); font: 800 18px var(--round-font); letter-spacing: .02em; border-radius: 4px; box-shadow: inset 0 -7px 0 var(--pink); }
 .site-header a:hover { color: var(--black); text-decoration: none; }
 .site-navigation { position: relative; }
 .navigation-toggle { display: flex; align-items: center; gap: 14px; min-height: 42px; padding: 7px 16px; border: 2px solid var(--black); border-radius: var(--cartoon-radius); box-shadow: var(--cartoon-shadow); background: #fff; color: var(--black); font: 700 16px var(--round-font); cursor: pointer; }
@@ -34,10 +35,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-
 .navigation-dropdown a:hover, .navigation-dropdown a:focus-visible { background: var(--mint); }
 
 main { min-height: calc(100vh - 190px); }
-.home-content { padding: 0 0 72px; }
+.home-content { padding: 0 0 72px; background-image: radial-gradient(#dfdfdf .8px, transparent .8px); background-size: 18px 18px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.lab-banner { background: #fff; border-bottom: 1px solid var(--line); }
-.lab-banner img { display: block; width: 100%; height: auto; }
+.lab-banner { aspect-ratio: 2.6; overflow: hidden; background: #080808; border-bottom: 1px solid var(--line); }
+.lab-banner img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .content-wrap { padding-top: 36px; }
 .about-copy { margin: 0; scroll-margin-top: 24px; }
 .about-copy p { margin: 0 0 16px; }
@@ -49,12 +50,15 @@ main { min-height: calc(100vh - 190px); }
 .about-copy li:nth-child(3)::before { background: #f4becf; }
 .about-copy li:nth-child(4)::before { background: #d6c7f1; }
 .about-copy strong { font-weight: 800; }
-.about-copy p:nth-child(2) strong { background: linear-gradient(transparent 64%, #ccebdc 64%); }
+.about-copy p:nth-child(2) strong { background: linear-gradient(transparent 64%, var(--pink) 64%); }
 .home-section { margin-top: 40px; padding: 30px; border: 2px solid var(--black); border-radius: var(--cartoon-radius); box-shadow: var(--cartoon-shadow); scroll-margin-top: 24px; }
-#team { background: #e5f2fb; --title-accent: #a8d1ee; }
-#join-us { background: #fceaf1; --title-accent: #f2b8cc; }
+#research { background: #f0ebfb; }
+#team { background: #e5f2fb; }
+#join-us { background: #fceaf1; }
 .section-title { margin: 0 0 12px; color: var(--black); font: 800 28px/1.35 var(--round-font); }
-.section-title::after { content: ""; display: block; width: 64px; height: 8px; margin-top: 9px; border: 1.5px solid var(--black); border-radius: 99px; background: var(--title-accent); box-shadow: 2px 2px 0 var(--black); }
+.project-list { display: flex; flex-direction: column; gap: 22px; margin-top: 24px; }
+.research-project h3 { margin: 0 0 6px; color: var(--black); font: 700 18px/1.4 var(--round-font); }
+.research-project p { margin: 0; }
 .section-lead { margin: 16px 0 26px; }
 .team-group { margin: 24px 0 38px; }
 .team-group:last-child { margin-bottom: 0; }

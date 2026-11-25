@@ -1,9 +1,11 @@
 import joinRaw from "../content/join.md?raw";
+import researchRaw from "../content/research.md?raw";
 import teamRaw from "../content/team.md?raw";
 import { entries, sections } from "../lib/content";
 import { Footer, Header } from "./components";
 
 const groups = sections(teamRaw);
+const projects = sections(researchRaw).flatMap(group => entries(group.body));
 const openings = sections(joinRaw)[0].body.split(/^## /m);
 
 export default function Home() {
@@ -13,7 +15,7 @@ export default function Home() {
       <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="wrap lab-banner">
         <img
-          src="/twins-hero-spatial-refined.png"
+          src="/twins-hero-spatial-light.png"
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
           width={1843}
           height={853}
@@ -21,7 +23,7 @@ export default function Home() {
         />
       </figure>
       <div className="wrap content-wrap">
-      <section id="research" className="about-copy" aria-label="Research overview">
+      <section id="about" className="about-copy" aria-label="Research overview">
         <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</p>
         <p>Our research connects <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
@@ -32,6 +34,15 @@ export default function Home() {
         </ul>
         <p>We work across environmental science, remote sensing, public health, digital humanities, and other domains where spatial intelligence can have meaningful impact.</p>
         <p><strong>We are looking for passionate new students to join the team</strong> (<a href="#join-us">more info</a>)!</p>
+      </section>
+      <section id="research" className="home-section" aria-labelledby="research-title">
+        <h2 id="research-title" className="section-title">Research Projects</h2>
+        <div className="project-list">
+          {projects.map(project => <article className="research-project" key={project.title}>
+            <h3>{project.title}</h3>
+            <p>{project.body}</p>
+          </article>)}
+        </div>
       </section>
       <section id="team" className="home-section" aria-labelledby="team-title">
         <h2 id="team-title" className="section-title">Group Members</h2>
