@@ -59,14 +59,12 @@ export default function Home() {
       </section>
       <section id="join-us" className="home-section" aria-labelledby="join-title">
         <h2 id="join-title" className="section-title">Open positions</h2>
-        <p className="section-lead">{openings[0].trim()}</p>
+        <p className="section-lead">{openings[0].trim()} To apply, please fill in the <a href="https://docs.google.com/forms/d/1zaKcnVsgSr2NBNopvyJdROB7oCge13VNgUx63fwgR1c/viewform">application form</a>.</p>
         <div className="openings">
           {openings.slice(1).map(part => {
             const [title, ...body] = part.trim().split("\n");
             return <article key={title}>
-              <h3>{title}</h3>
-              <p>{body.join(" ").replace(/\*\*/g, "")}</p>
-              {title === "How to apply" && <a className="apply" href="mailto:yijunlinnn@gmail.com">Email your application</a>}
+              <p><strong>{title}.</strong>{" "}{body.join(" ").replace(/\*\*/g, "")}</p>
             </article>;
           })}
         </div>
