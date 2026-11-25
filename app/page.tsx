@@ -1,17 +1,28 @@
 import joinRaw from "../content/join.md?raw";
 import researchRaw from "../content/research.md?raw";
-import publicationGroups from "../content/publications.json";
 import teamRaw from "../content/team.md?raw";
 import { entries, sections } from "../lib/content";
 import { Footer, Header } from "./components";
 import { SpatialPredictionAnimation } from "./spatial-prediction-animation";
 
 const groups = sections(teamRaw);
-const projects = sections(researchRaw).flatMap(group => entries(group.body)).map(project => ({
-  ...project,
-  publications: publicationGroups[project.fields.publications as keyof typeof publicationGroups] ?? [],
-}));
+const projects = sections(researchRaw).flatMap(group => entries(group.body));
 const openings = sections(joinRaw)[0].body.split(/^## /m);
+
+function ResearchDescription({ text }: { text: string }) {
+  const links = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const content = [];
+  let position = 0;
+
+  for (const match of text.matchAll(links)) {
+    content.push(text.slice(position, match.index));
+    content.push(<a key={match.index} href={match[2]}>{match[1]}</a>);
+    position = match.index! + match[0].length;
+  }
+
+  content.push(text.slice(position));
+  return <p>{content}</p>;
+}
 
 export default function Home() {
   return <>
@@ -29,8 +40,7 @@ export default function Home() {
       </figure>
       <div className="wrap content-wrap">
       <section id="about" className="about-copy" aria-label="Research overview">
-        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research connects <strong className="research-emphasis">computer science</strong> and <strong className="research-emphasis">spatial sciences</strong>.</p>
-        <p>We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
+        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research connects <strong className="research-emphasis">computer science</strong> and <strong className="research-emphasis">spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
           <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
           <li>How can intelligent systems understand change across space and time?</li>
@@ -49,16 +59,7 @@ export default function Home() {
             </a>}
             <div>
               <h3>{project.title}</h3>
-              <p>{project.body}</p>
-            </div>
-            <div className="project-publications">
-              <h4>Publications</h4>
-              <ul className="publication-list">
-                {project.publications.map(paper => <li key={paper.url}>
-                  <span className="publication-venue">{paper.venue} {paper.year}</span>
-                  <a href={paper.url}>{paper.title}</a>
-                </li>)}
-              </ul>
+              <ResearchDescription text={project.body} />
             </div>
           </article>)}
         </div>
