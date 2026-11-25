@@ -33,7 +33,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-
 main { min-height: calc(100vh - 190px); }
 .home-content { padding: 0 0 72px; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.lab-banner { width: 100%; margin: 0; background: #fff; border-bottom: 1px solid var(--line); }
+.lab-banner { background: #fff; border-bottom: 1px solid var(--line); }
 .lab-banner img { display: block; width: 100%; height: auto; }
 .content-wrap { padding-top: 36px; }
 .about-copy { margin: 0; scroll-margin-top: 24px; }
@@ -48,15 +48,14 @@ main { min-height: calc(100vh - 190px); }
 #join-us { background: #fcf0f3; }
 .section-title { margin: 0 0 12px; color: var(--black); font: 800 28px/1.35 var(--round-font); }
 .section-lead { margin: 16px 0 26px; }
-.subheading { margin: 28px 0 18px; color: var(--black); font: inherit; }
-.team-group { margin-bottom: 38px; }
+.team-group { margin: 24px 0 38px; }
 .team-group:last-child { margin-bottom: 0; }
 .people-list { display: flex; align-items: flex-start; gap: 48px; }
 .person { display: flex; flex: 1; min-width: 0; align-items: flex-start; gap: 20px; }
 .person > div { min-width: 0; }
-.portrait { flex: 0 0 112px; width: 112px; height: 136px; object-fit: cover; border-radius: 12px; }
-.person h4 { margin: 0 0 8px; color: var(--black); font: inherit; font-weight: 700; }
-.person h4 a { color: inherit; text-decoration: underline; }
+.portrait { flex: 0 0 112px; width: 112px; height: 112px; object-fit: cover; border-radius: 12px; }
+.person h3 { margin: 0 0 8px; color: var(--black); font: inherit; font-weight: 700; }
+.person h3 a { color: inherit; text-decoration: underline; }
 .person p { margin: 0 0 6px; }
 .person span { font: inherit; }
 .openings { display: flex; flex-direction: column; gap: 18px; }
@@ -65,7 +64,7 @@ main { min-height: calc(100vh - 190px); }
 .section-lead a { text-decoration: underline; }
 
 footer { background: #fff; border-top: 1px solid var(--line); color: var(--text); }
-.footer-inner { width: min(970px, calc(100% - 40px)); margin: auto; padding: 30px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.footer-inner { width: min(970px, calc(100% - 40px)); margin: auto; padding: 30px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 50px; }
 .footer-inner p { margin: 0; font-size: 14px; }
 .footer-inner a { color: var(--black); text-decoration: underline; }
 
@@ -82,5 +81,5 @@ footer { background: #fff; border-top: 1px solid var(--line); color: var(--text)
   .section-title { font-size: 24px; }
   .home-section { padding: 20px; }
   .person { gap: 18px; }
-  .portrait { flex-basis: 92px; width: 92px; height: 112px; }
+  .portrait { flex-basis: 92px; width: 92px; height: 92px; }
 }

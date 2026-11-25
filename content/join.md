@@ -6,4 +6,4 @@ We welcome students from diverse backgrounds who are curious about machine learn
 We are actively recruiting motivated Ph.D. students in computer science. Strong applicants will have experience in Python and machine learning, and an interest in spatial data, environmental applications, remote sensing, or multimodal AI. Funding is available for selected students.
 
 ## Master’s and undergraduate research
-SIU master’s and undergraduate students are welcome to explore research opportunities. Prior research experience is not required for undergraduates.
+Master’s and undergraduate students are welcome to explore research opportunities. Prior research experience is not required for undergraduates.
