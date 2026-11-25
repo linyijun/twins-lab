@@ -35,7 +35,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-
 
 main { min-height: calc(100vh - 190px); }
 .home-content { padding: 0 0 72px; background-image: radial-gradient(#dfdfdf .8px, transparent .8px); background-size: 18px 18px; }
-.lab-banner { width: 100%; margin: 0; background: #080808; border-bottom: 1px solid var(--line); }
+.lab-banner { width: 100%; margin: 0; background: #fff; border-bottom: 1px solid var(--line); }
 .lab-banner img { display: block; width: 100%; height: auto; }
 .content-wrap { padding-top: 36px; }
 .welcome-card { position: relative; padding: 24px 30px; margin: 0 5px 30px 0; background: var(--yellow); border: 2px solid var(--black); border-radius: 24px 24px 24px 6px; box-shadow: 5px 5px 0 var(--black); }
