@@ -13,7 +13,7 @@ export default function Home() {
       <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="lab-banner">
         <img
-          src="/twins-hero-map.png"
+          src="/twins-hero-research.png"
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
           width={1729}
           height={910}
@@ -22,7 +22,9 @@ export default function Home() {
       </figure>
       <div className="wrap content-wrap">
       <section id="research" className="about-copy" aria-label="Research overview">
-        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research focuses on applied machine learning and data science, thriving at the intersection of <strong>computer science</strong> and <strong>spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
+        <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>.</p>
+        <p>Our research connects <strong>computer science</strong> and <strong>spatial sciences</strong>.</p>
+        <p>We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
           <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
           <li>How can intelligent systems understand change across space and time?</li>
