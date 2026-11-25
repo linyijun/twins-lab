@@ -2,6 +2,7 @@
 
 ## Spatial Prediction
 publications: spatial
+animation: spatial-prediction
 image: /research/spatial-prediction-cartoon-v2.png
 alt: Cartoon showing three field measurement stations on dry land and environmental feature maps feeding a neural network to predict fine-scale spatial variation across the landscape
 width: 1254
