@@ -71,7 +71,7 @@ export default function Home() {
         <p><strong>We are looking for passionate new students to join the team</strong> (<a href="#join-us">more info</a>)!</p>
       </section>
       <section id="research" className="home-section" aria-labelledby="research-title">
-        <h2 id="research-title" className="section-title">What we are doing</h2>
+        <h2 id="research-title" className="section-title">What we are doing?</h2>
         <div className="project-list">
           {projects.map(project => <article className="research-project" data-animation={project.fields.animation} key={project.title}>
             <div className="project-copy">

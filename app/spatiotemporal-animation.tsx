@@ -64,14 +64,14 @@ export function SpatiotemporalAnimation() {
   return <div ref={frame} className="spatiotemporal-animation" data-paused={paused || !visible || reducedMotion}>
     <svg viewBox="0 0 1000 1000" role="img" aria-labelledby={`${id}-title ${id}-description`}>
       <title id={`${id}-title`}>Four spatiotemporal modeling scenarios</title>
-      <desc id={`${id}-description`}>Four adjoining cartoon scenes move together: evolving sea-surface temperature patterns adapted from the original SVPNet animation, two moving digits, people traveling through city streets, and changing traffic volume on a road.</desc>
+      <desc id={`${id}-description`}>Four adjoining cartoon scenes move together: evolving sea-surface temperature patterns adapted from the original SVPNet animation, changing traffic volume on a road, people traveling through city streets, and two moving digits.</desc>
       <defs><clipPath id={`${id}-panels`}><rect x="50" y="90" width="900" height="800" rx="20" /></clipPath></defs>
       <rect x="56" y="97" width="900" height="800" rx="20" fill="#d7c5e6" />
       <g clipPath={`url(#${id}-panels)`}>
         <ScenePanel x={50} y={90} label="Sea surface temp." clipId={`${id}-sea`}><SeaTemperatureScene /></ScenePanel>
-        <ScenePanel x={500} y={90} label="Moving digits" clipId={`${id}-digits`}><MovingDigitsScene /></ScenePanel>
+        <ScenePanel x={500} y={90} label="Traffic volume" clipId={`${id}-traffic`}><TrafficVolumeScene /></ScenePanel>
         <ScenePanel x={50} y={490} label="Human mobility" clipId={`${id}-mobility`}><HumanMobilityScene /></ScenePanel>
-        <ScenePanel x={500} y={490} label="Traffic volume" clipId={`${id}-traffic`}><TrafficVolumeScene /></ScenePanel>
+        <ScenePanel x={500} y={490} label="Moving digits" clipId={`${id}-digits`}><MovingDigitsScene /></ScenePanel>
       </g>
       <rect x="50" y="90" width="900" height="800" rx="20" fill="none" stroke="#202625" strokeWidth="5" />
       <path d="M500 90V890M50 490H950" fill="none" stroke="#202625" strokeWidth="3" />
