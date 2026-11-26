@@ -16,4 +16,4 @@ photo: /people/junyuan.jpg
 ## Example Student
 role: PhD Student
 institute: Placeholder profile
-photo: /people/phd-placeholder.png
+photo: /people/phd-placeholder.jpg

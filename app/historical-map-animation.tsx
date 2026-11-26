@@ -136,9 +136,9 @@ export function HistoricalMapAnimation() {
         </g>
       </g>
       <g fill="#303732" fontFamily="Avenir Next, Trebuchet MS, sans-serif" fontSize="46" fontWeight="700" textAnchor="middle">
-        <text className="hm-motion hm-words" data-stage="caption-words" x="500" y="940">Words</text>
-        <text className="hm-motion hm-place-caption" data-stage="caption-phrase" x="500" y="940">Place names</text>
-        <text className="hm-motion hm-location-caption" data-stage="caption-location" x="500" y="940">Location on Earth</text>
+        <text className="hm-motion hm-words" data-stage="caption-words" x="500" y="940">Detect &amp; recognize words</text>
+        <text className="hm-motion hm-place-caption" data-stage="caption-phrase" x="500" y="940">Identify place names</text>
+        <text className="hm-motion hm-location-caption" data-stage="caption-location" x="500" y="940">Find location on earth</text>
       </g>
     </svg>
     {!reducedMotion && <button className="hm-playback" type="button" aria-label={paused ? "Resume historical map animation" : "Pause historical map animation"} aria-pressed={paused} title={paused ? "Resume animation" : "Pause animation"} onClick={() => setPaused(value => !value)}>
