@@ -7,19 +7,16 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: github-pages
   cancel-in-progress: false
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
@@ -31,8 +28,48 @@ jobs:
       - run: npm run verify:pages
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
+        id: upload
         with:
           path: dist/pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Wait for the uploaded Pages artifact
+        uses: actions/github-script@v8
+        env:
+          PAGES_ARTIFACT_ID: ${{ needs.build.outputs.artifact_id }}
+        with:
+          retries: 3
+          script: |
+            const expectedId = Number(process.env.PAGES_ARTIFACT_ID);
+            if (!Number.isSafeInteger(expectedId) || expectedId <= 0) {
+              throw new Error('The build did not return a Pages artifact ID.');
+            }
+            for (let attempt = 1; attempt <= 12; attempt++) {
+              const { data } = await github.rest.actions.listWorkflowRunArtifacts({
+                ...context.repo,
+                run_id: context.runId,
+                name: 'github-pages',
+                per_page: 100,
+              });
+              if (data.artifacts.some(artifact =>
+                artifact.id === expectedId && artifact.name === 'github-pages' && !artifact.expired)) {
+                core.info(`Pages artifact ${expectedId} is ready.`);
+                return;
+              }
+              core.info(`Pages artifact is not visible yet (${attempt}/12).`);
+              if (attempt < 12) await new Promise(resolve => setTimeout(resolve, 5000));
+            }
+            throw new Error('The uploaded Pages artifact was not visible within the retry window.');
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v4
