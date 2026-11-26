@@ -1,7 +1,8 @@
 import { Navigation } from "./navigation";
+import { sitePath } from "../lib/site";
 
 export function Header() {
-  return <header className="site-header"><div className="site-header-inner"><a className="brand" href="/">TWINS LAB @ SIU</a><Navigation /></div></header>;
+  return <header className="site-header"><div className="site-header-inner"><a className="brand" href={sitePath("/")}>TWINS LAB @ SIU</a><Navigation /></div></header>;
 }
 
 export function Footer() {

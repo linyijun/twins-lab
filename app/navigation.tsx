@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { sitePath } from "../lib/site";
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
@@ -51,9 +52,9 @@ export function Navigation() {
       </svg>
     </button>
     <div id="site-navigation-links" className="navigation-dropdown" hidden={!open}>
-      <a href="/#research" onClick={() => setOpen(false)}>Research</a>
-      <a href="/#team" onClick={() => setOpen(false)}>Team</a>
-      <a href="/#join-us" onClick={() => setOpen(false)}>Join us</a>
+      <a href={sitePath("/#research")} onClick={() => setOpen(false)}>Research</a>
+      <a href={sitePath("/#team")} onClick={() => setOpen(false)}>Team</a>
+      <a href={sitePath("/#join-us")} onClick={() => setOpen(false)}>Join us</a>
     </div>
   </nav>;
 }

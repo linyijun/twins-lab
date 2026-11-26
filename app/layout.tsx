@@ -1,36 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { absoluteSiteUrl, sitePath, siteUrl } from "../lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://twins-spatial-intelligence.lin00786.chatgpt.site"),
+  metadataBase: new URL(siteUrl),
   title: "TWINS Lab — Intelligent Spatial Computing",
   description:
     "TWINS Lab explores how artificial intelligence can understand, model, and shape the spatial world.",
   openGraph: {
     title: "TWINS Lab — Intelligent Spatial Computing",
     description: "Towards Intelligent Spatial Computing at Southern Illinois University Carbondale.",
-    images: [{ url: "/twins-hero-spatial-lowered.png", width: 1843, height: 853, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
+    images: [{ url: absoluteSiteUrl("/twins-hero-spatial-lowered.png"), width: 1843, height: 853, alt: "TWINS Lab — Towards Intelligent Spatial Computing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "TWINS Lab",
     description: "Towards Intelligent Spatial Computing",
-    images: ["/twins-hero-spatial-lowered.png"],
+    images: [absoluteSiteUrl("/twins-hero-spatial-lowered.png")],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: sitePath("/favicon.svg"),
+    shortcut: sitePath("/favicon.svg"),
   },
 };
 
@@ -41,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         {children}
       </body>
     </html>

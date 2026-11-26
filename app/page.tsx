@@ -2,6 +2,7 @@ import joinRaw from "../content/join.md?raw";
 import researchRaw from "../content/research.md?raw";
 import teamRaw from "../content/team.md?raw";
 import { entries, sections } from "../lib/content";
+import { sitePath } from "../lib/site";
 import { Footer, Header } from "./components";
 import { SpatialPredictionAnimation } from "./spatial-prediction-animation";
 import { SpatiotemporalAnimation } from "./spatiotemporal-animation";
@@ -50,7 +51,7 @@ export default function Home() {
       <h1 className="visually-hidden">TWINS Lab — Towards Intelligent Spatial Computing</h1>
       <figure className="wrap lab-banner">
         <img
-          src="/twins-hero-spatial-lowered.png"
+          src={sitePath("/twins-hero-spatial-lowered.png")}
           alt="TWINS Lab — Towards Intelligent Spatial Computing"
           width={1843}
           height={853}
@@ -78,8 +79,8 @@ export default function Home() {
               <ResearchDescription text={project.body} />
             </div>
             <div className="project-visual" data-animated={Boolean(project.fields.animation) || project.fields.image.endsWith(".gif")}>
-              {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : project.fields.animation === "historical-map" ? <HistoricalMapAnimation /> : <a className="project-figure-link" href={project.fields.image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
-                <img className="project-figure" src={project.fields.image} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
+              {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : project.fields.animation === "historical-map" ? <HistoricalMapAnimation /> : <a className="project-figure-link" href={sitePath(project.fields.image)} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
+                <img className="project-figure" src={sitePath(project.fields.image)} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
               </a>}
             </div>
           </article>)}
@@ -93,7 +94,7 @@ export default function Home() {
             {entries(group.body).map(person => <article className="person" key={person.title}>
               <img
                 className="portrait"
-                src={person.fields.photo}
+                src={sitePath(person.fields.photo)}
                 alt={person.title}
                 width={112}
                 height={112}

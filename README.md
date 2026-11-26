@@ -33,6 +33,18 @@ npm run dev -- --port 3001
 npm run build
 ```
 
-The site currently uses React and Vinext with a Cloudflare Worker build. The `.openai/hosting.json` file is used by the existing build configuration. Saving this repository does not publish the website or enable GitHub Pages. GitHub Pages deployment will require a static-site build and configuration for the repository URL.
+The existing local/Sites build uses React and Vinext. The `.openai/hosting.json` file is used by that build configuration.
+
+## GitHub Pages
+
+The public website is published at https://linyijun.github.io/twins-lab/.
+
+```bash
+npm run build:pages
+```
+
+This builds and prerenders the same page and interactive components into `dist/pages/`, with asset and navigation URLs rooted at `/twins-lab/`. It does not require a server. GitHub Actions publishes the static output whenever changes are pushed to `main`, or when the **Publish lab website** workflow is run manually. GitHub Pages must use **GitHub Actions** as its source.
+
+The regular `npm run dev` preview continues to run at the root URL.
 
 The existing `npm test` command still contains starter-template assertions and is not a validation suite for the lab website.
