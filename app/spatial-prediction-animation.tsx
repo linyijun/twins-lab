@@ -61,9 +61,9 @@ export function SpatialPredictionAnimation() {
       <defs>
         <clipPath id={`${id}-land`}><path d={LAND_PATH} /></clipPath>
       </defs>
-      <g stroke="#151515" strokeWidth="7" strokeLinejoin="round" strokeLinecap="round">
-        <path d={BASE_PATH} fill="#d7c5e6" />
-        <path d={LAND_PATH} fill="#f7f8f2" />
+      <g stroke="#151515" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round">
+        <path d={BASE_PATH} fill="#d7c5e6" vectorEffect="non-scaling-stroke" />
+        <path d={LAND_PATH} fill="#f7f8f2" vectorEffect="non-scaling-stroke" />
       </g>
       <g clipPath={`url(#${id}-land)`}>
         {GRID_CELLS.map(cell => <path
@@ -94,7 +94,7 @@ export function SpatialPredictionAnimation() {
           strokeLinejoin="round"
         />)}
       </g>
-      <path d={LAND_PATH} fill="none" stroke="#151515" strokeWidth="7" strokeLinejoin="round" />
+      <path d={LAND_PATH} fill="none" stroke="#151515" strokeWidth="1.4" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
       <MountainRidge x={330} y={282} scale={.9} />
       <MountainRidge x={820} y={317} scale={.7} />
       {OBSERVATION_SITES.map((site, index) => <ObservationPin key={site.id} x={site.x} y={site.y} number={index + 1} />)}

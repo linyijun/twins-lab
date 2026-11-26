@@ -62,8 +62,8 @@ export default function Home() {
       <section id="about" className="about-copy" aria-label="Research overview">
         <p>Welcome to the <strong>TWINS Lab</strong> at <a href="https://siu.edu/">Southern Illinois University Carbondale</a>. Our research connects <strong className="research-emphasis">computer science</strong> and <strong className="research-emphasis">spatial sciences</strong>. We create advanced machine learning algorithms and intelligent systems to tackle real-world challenges by asking:</p>
         <ul>
-          <li>How can machines learn reliably from sparse and irregular spatial observations?</li>
-          <li>How can intelligent systems understand change across space and time?</li>
+          <li>How can models learn reliably from sparse and unevenly distributed spatial observations?</li>
+          <li>How can we understand and predict change across space and time?</li>
           <li>How can we extract useful knowledge from maps, imagery, and multimodal data?</li>
           <li>How can spatial thinking make machine learning more reliable and useful?</li>
         </ul>

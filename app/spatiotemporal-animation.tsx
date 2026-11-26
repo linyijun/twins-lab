@@ -73,7 +73,7 @@ export function SpatiotemporalAnimation() {
         <ScenePanel x={50} y={490} label="Human mobility" clipId={`${id}-mobility`}><HumanMobilityScene /></ScenePanel>
         <ScenePanel x={500} y={490} label="Moving digits" clipId={`${id}-digits`}><MovingDigitsScene /></ScenePanel>
       </g>
-      <rect x="50" y="90" width="900" height="800" rx="20" fill="none" stroke="#202625" strokeWidth="5" />
+      <rect x="50" y="90" width="900" height="800" rx="20" fill="none" stroke="#202625" strokeWidth="1.4" vectorEffect="non-scaling-stroke" />
       <path d="M500 90V890M50 490H950" fill="none" stroke="#202625" strokeWidth="3" />
     </svg>
     {!reducedMotion && <button type="button" className="spatiotemporal-playback"

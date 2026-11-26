@@ -109,7 +109,7 @@ export function HistoricalMapAnimation() {
             <rect x="135" y="460" width="317" height="70" rx="7" />
           </g>
         </g>
-        <rect width="820" height="700" rx="13" fill="none" stroke="#202625" strokeWidth="7" />
+        <rect width="820" height="700" rx="13" fill="none" stroke="#202625" strokeWidth="1.4" vectorEffect="non-scaling-stroke" />
       </g>
       <g className="hm-motion hm-globe" data-stage="globe" role="group" aria-label="Earth with the Americas">
         <circle cx={earth.x} cy={earth.y} r={earth.radius} fill="#b4e2eb" stroke="#202625" strokeWidth="6" />
