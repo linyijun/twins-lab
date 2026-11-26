@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-const earth = { x: 770, y: 710, radius: 145 };
+const earth = { x: 770, y: 650, radius: 145 };
 const linkedMap = { x: 50, y: 95, scale: .8 };
 const radians = Math.PI / 180;
 function project(longitude: number, latitude: number) {
