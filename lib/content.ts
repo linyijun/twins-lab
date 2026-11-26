@@ -1,6 +1,3 @@
-export type Person = { name: string; role: string; institute: string; photo: string; link?: string };
-export type Project = { title: string; image: string; links: { label: string; href: string }[]; body: string };
-
 export function sections(markdown: string) {
   return markdown.trim().split(/^# /m).filter(Boolean).map((chunk) => {
     const [title, ...rest] = chunk.trim().split("\n");

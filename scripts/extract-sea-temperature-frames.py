@@ -5,9 +5,10 @@ the site's synchronized, pausable animation, not a new scientific dataset.
 """
 import json
 import os
+import tempfile
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/twins-matplotlib-cache")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "twins-matplotlib-cache"))
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -15,7 +16,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "public/research/svpnet-spatiotemporal-forecasting.gif"
+SOURCE = ROOT / "assets/source/sea-surface-temperature.gif"
 OUTPUT = ROOT / "content/sea-temperature-frames.json"
 RESOLUTION = 24
 PALETTE = ["#a5d9e4", "#8fd8cb", "#bce5c5", "#f1e3ac", "#efbb9d"]
@@ -53,6 +54,6 @@ for field in fields:
     frames.append(bands)
     plt.close(fig)
 
-OUTPUT.write_text(json.dumps({"source": "/research/svpnet-spatiotemporal-forecasting.gif",
+OUTPUT.write_text(json.dumps({"source": SOURCE.relative_to(ROOT).as_posix(),
                               "durationsMs": durations, "frames": frames}, separators=(",", ":")))
 print(f"Traced {len(frames)} source frames into {OUTPUT.name} ({OUTPUT.stat().st_size:,} bytes)")

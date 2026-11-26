@@ -78,7 +78,7 @@ export default function Home() {
               <h3>{project.title}</h3>
               <ResearchDescription text={project.body} />
             </div>
-            <div className="project-visual" data-animated={Boolean(project.fields.animation) || project.fields.image.endsWith(".gif")}>
+            <div className="project-visual" data-animated={Boolean(project.fields.animation) || project.fields.image?.endsWith(".gif")}>
               {project.fields.animation === "spatial-prediction" ? <SpatialPredictionAnimation /> : project.fields.animation === "spatiotemporal" ? <SpatiotemporalAnimation /> : project.fields.animation === "historical-map" ? <HistoricalMapAnimation /> : <a className="project-figure-link" href={sitePath(project.fields.image)} target="_blank" rel="noreferrer" aria-label={`View ${project.title} figure at full size`}>
                 <img className="project-figure" src={sitePath(project.fields.image)} alt={project.fields.alt} width={Number(project.fields.width)} height={Number(project.fields.height)} loading="lazy" />
               </a>}
